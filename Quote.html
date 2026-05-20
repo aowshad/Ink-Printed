@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Get a quote — InkPrinted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --bg-deeper: #000000;
+    --accent: #AACC00;
+    --text: #FFFFFF;
+    --text-65: rgba(255,255,255,0.65);
+    --text-60: rgba(255,255,255,0.60);
+    --text-50: rgba(255,255,255,0.50);
+    --text-40: rgba(255,255,255,0.40);
+    --text-30: rgba(255,255,255,0.30);
+    --text-25: rgba(255,255,255,0.25);
+    --text-20: rgba(255,255,255,0.20);
+    --text-15: rgba(255,255,255,0.15);
+    --text-10: rgba(255,255,255,0.10);
+    --surface: #141414;
+    --surface-2: #1C1C1C;
+    --border: #1C1C1C;
+    --content-max: 1280px;
+    --gutter: 96px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter Tight", system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+    line-height: 26px;
+  }
+  body { overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; padding: 0; }
+  img, svg { display: block; max-width: 100%; }
+  input, textarea, select { font-family: inherit; outline: none; }
+
+  .label-up { font-size: 11px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 500; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; }
+
+  .container { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--gutter); }
+  @media (max-width: 1440px) { .container { padding: 0 64px; } }
+  @media (max-width: 900px) { :root { --gutter: 16px; } .container { padding: 0 16px; } }
+
+  .reveal { opacity: 1; transform: none; transition: opacity 600ms ease-out, transform 600ms ease-out; }
+  .js-reveal-ready .reveal:not(.in) { opacity: 0; transform: translateY(16px); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 48px; padding: 0 24px;
+    border-radius: 4px;
+    font-weight: 500; font-size: 15px;
+    transition: filter 200ms ease-out, background 200ms ease-out, border-color 200ms ease-out, transform 200ms ease-out;
+    white-space: nowrap;
+  }
+  .btn .arrow { transition: transform 200ms ease-out; }
+  .btn:hover .arrow { transform: translateX(3px); }
+  .btn-primary { background: var(--accent); color: #0A0A0A; }
+  .btn-primary:hover { filter: brightness(1.05); }
+  .btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04); }
+  .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  .btn:disabled:hover { filter: none; }
+
+  .fld {
+    width: 100%;
+    height: 44px;
+    background: transparent;
+    color: #fff;
+    border: 0.5px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    padding: 0 12px;
+    font-size: 14px;
+    transition: border-color 200ms ease-out;
+  }
+  .fld:focus { border-color: var(--accent); border-width: 1px; }
+  .fld::placeholder { color: rgba(255,255,255,0.30); }
+
+  textarea.fld {
+    height: auto;
+    min-height: 80px;
+    padding: 10px 12px;
+    line-height: 1.5;
+    resize: vertical;
+  }
+
+  @keyframes pulseCTA {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(170,204,0,0.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(170,204,0,0); }
+  }
+  .btn-pulse { animation: pulseCTA 1.8s ease-out infinite; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="icons.jsx"></script>
+<script type="text/babel" src="placeholders.jsx"></script>
+<script type="text/babel" src="megamenus.jsx"></script>
+<script type="text/babel" src="top.jsx"></script>
+<script type="text/babel" src="bottom.jsx"></script>
+<script type="text/babel" src="quote-app.jsx"></script>
+</body>
+</html>
