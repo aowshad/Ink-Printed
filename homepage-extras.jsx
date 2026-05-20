@@ -2,8 +2,6 @@
 // (Marquee strip, Quick-text editorial band, Before/After slider, Customer review wall,
 //  Instagram block, BrandLogoStrip)
 
-import { useState } from "react";
-
 const { useState: useStateExtras, useEffect: useEffectExtras, useRef: useRefExtras } = React;
 
 // ── Tiny acid-green star (used in marquee + reviews)
@@ -127,7 +125,6 @@ const BeforeAfterSlider = () => {
           </h2>
         </div>
 
-
         <div
           ref={containerRef}
           onMouseDown={(e) => { dragging.current = true; update(e.clientX); }}
@@ -164,7 +161,6 @@ const BeforeAfterSlider = () => {
               alt="Blank hoodie"
               loading="lazy"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-              
             />
           </div>
 
