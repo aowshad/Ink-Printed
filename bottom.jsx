@@ -68,13 +68,20 @@ const PricingBand = () => {
 
 // 08 — Gallery (bento)
 const GALLERY = [
-  { tag: "EMBROIDERED POLO", kind: "polo", area: "tall" },
-  { tag: "DTG HOODIE", kind: "hoodie", area: "large" },
-  { tag: "SCREEN PRINT TEE", kind: "tee", area: "sq1" },
-  { tag: "EMBROIDERED CAP", kind: "cap", area: "sq2" },
-  { tag: "TOTE BAG", kind: "tote", area: "sm1" },
-  { tag: "WORKSHOP POLO", kind: "polo", area: "sm2" },
-  { tag: "DTG TEE", kind: "tee", area: "sm3" }
+  { tag: "EMBROIDERED POLO", kind: "polo", area: "tall",
+    src: "https://images.unsplash.com/photo-1625910513520-bed0389ce32f?w=1200&auto=format&fit=crop&q=80" },
+  { tag: "DTG HOODIE", kind: "hoodie", area: "large",
+    src: "https://images.unsplash.com/photo-1608054321461-55d899ee08a4?w=1200&auto=format&fit=crop&q=80" },
+  { tag: "SCREEN PRINT TEE", kind: "tee", area: "sq1",
+    src: "https://images.unsplash.com/photo-1627933540891-1fb6a397c89b?w=1200&auto=format&fit=crop&q=80" },
+  { tag: "EMBROIDERED CAP", kind: "cap", area: "sq2",
+    src: "https://images.unsplash.com/photo-1760050516469-03cf01c92085?w=1200&auto=format&fit=crop&q=80" },
+  { tag: "TOTE BAG", kind: "tote", area: "sm1",
+    src: "https://images.unsplash.com/photo-1624911104820-5316c700b907?w=1200&auto=format&fit=crop&q=80" },
+  { tag: "WORKSHOP POLO", kind: "polo", area: "sm2",
+    src: "https://images.unsplash.com/photo-1739809006763-49663591bdcd?w=1200&auto=format&fit=crop&q=80" },
+  { tag: "DTG TEE", kind: "tee", area: "sm3",
+    src: "https://images.unsplash.com/photo-1647058485457-af0fb8a66a2b?w=1200&auto=format&fit=crop&q=80" }
 ];
 
 const Gallery = () => {
@@ -154,7 +161,7 @@ const ContentBlocker = () => (
   </div>
 );
 
-const GalleryTile = ({ tag, kind, style }) => {
+const GalleryTile = ({ tag, kind, src, style }) => {
   const [hover, setHover] = useState(false);
   return (
     <a
@@ -176,7 +183,7 @@ const GalleryTile = ({ tag, kind, style }) => {
         transform: hover ? "scale(1.04)" : "scale(1)",
         transition: "transform 400ms ease-out"
       }}>
-        <Placeholder label={tag} kind={kind} />
+        <Placeholder label={tag} kind={kind} src={src} />
       </div>
       {/* Tag on hover */}
       <div style={{

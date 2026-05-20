@@ -68,6 +68,7 @@ const ImagePool = {
   ],
   // Hero — moody editorial product shots
   hero: [
+    "uploads/model with custom hoodie.png",
     "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1800&auto=format&fit=crop&q=85",
     "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1800&auto=format&fit=crop&q=85",
     "https://images.unsplash.com/photo-1611042553365-9b101441c135?w=1800&auto=format&fit=crop&q=85",
@@ -141,9 +142,9 @@ function pickImage(poolKey, label) {
 //   pool   — override pool key (e.g. "hero", "customer", "lifestyle")
 //   label  — descriptive label, used as seed for image selection and as fallback tag
 //   overlay— "soft" (default) / "none" / "strong" — dark gradient overlay on top of imagery
-const Placeholder = ({ label, kind = "product", pool, overlay = "none", style }) => {
+const Placeholder = ({ label, kind = "product", pool, overlay = "none", style, src: srcOverride }) => {
   const poolKey = pool || kind;
-  const src = pickImage(poolKey, label);
+  const src = srcOverride || pickImage(poolKey, label);
   const isHero = poolKey === "hero";
 
   if (src) {
