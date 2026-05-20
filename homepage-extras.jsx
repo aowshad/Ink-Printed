@@ -2,6 +2,8 @@
 // (Marquee strip, Quick-text editorial band, Before/After slider, Customer review wall,
 //  Instagram block, BrandLogoStrip)
 
+import { useState } from "react";
+
 const { useState: useStateExtras, useEffect: useEffectExtras, useRef: useRefExtras } = React;
 
 // ── Tiny acid-green star (used in marquee + reviews)
@@ -114,6 +116,7 @@ const BeforeAfterSlider = () => {
       window.removeEventListener("touchend", onUp);
     };
   }, []);
+const [name , setName] = useState("");
 
   return (
     <section style={{ paddingTop: 120, paddingBottom: 120 }}>
@@ -124,6 +127,17 @@ const BeforeAfterSlider = () => {
             Drag to see the transformation.
           </h2>
         </div>
+
+        <input 
+        style={{
+          width:"100%",
+          height: "40px"
+        }}
+          type="text" 
+          placeholder="Enter your name..." 
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
 
         <div
           ref={containerRef}
@@ -142,9 +156,13 @@ const BeforeAfterSlider = () => {
           {/* After image (full width, behind) — printed.
               Specific URL pair; swap in Mark's real shot when supplied. */}
           <div style={{ position: "absolute", inset: 0 }}>
+            <p>
+              {name || "Enter your name"}
+            </p>
             <img
               src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1400&auto=format&fit=crop&q=85"
               alt="Printed hoodie"
+              
               loading="lazy"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
