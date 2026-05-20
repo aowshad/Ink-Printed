@@ -116,7 +116,6 @@ const BeforeAfterSlider = () => {
       window.removeEventListener("touchend", onUp);
     };
   }, []);
-const [name , setName] = useState("");
 
   return (
     <section style={{ paddingTop: 120, paddingBottom: 120 }}>
@@ -128,16 +127,6 @@ const [name , setName] = useState("");
           </h2>
         </div>
 
-        <input 
-        style={{
-          width:"100%",
-          height: "40px"
-        }}
-          type="text" 
-          placeholder="Enter your name..." 
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
 
         <div
           ref={containerRef}
@@ -156,13 +145,9 @@ const [name , setName] = useState("");
           {/* After image (full width, behind) — printed.
               Specific URL pair; swap in Mark's real shot when supplied. */}
           <div style={{ position: "absolute", inset: 0 }}>
-            <p>
-              {name || "Enter your name"}
-            </p>
             <img
               src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1400&auto=format&fit=crop&q=85"
               alt="Printed hoodie"
-              
               loading="lazy"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
             />
@@ -175,7 +160,7 @@ const [name , setName] = useState("");
             clipPath: `inset(0 ${100 - pos}% 0 0)`
           }}>
             <img
-              src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=1400&auto=format&fit=crop&q=85"
+              src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1400&auto=format&fit=crop&q=85"
               alt="Blank hoodie"
               loading="lazy"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
@@ -424,7 +409,7 @@ const CustomerReviewCard = ({ review, stagger, delayMs }) => {
       </div>
       <div style={{ padding: 16 }}>
         <div style={{ display: "inline-flex", gap: 2 }}>
-          {[1,2,3,4,5].map(i => (
+          {[1, 2, 3, 4, 5].map(i => (
             <AcidStar key={i} size={11} />
           ))}
         </div>
@@ -464,11 +449,11 @@ const InstagramBlock = () => {
             See your prints on Instagram
           </span>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-             style={{
-               color: "var(--accent)",
-               fontSize: 16, fontWeight: 500,
-               display: "inline-flex", alignItems: "center", gap: 6
-             }}>
+            style={{
+              color: "var(--accent)",
+              fontSize: 16, fontWeight: 500,
+              display: "inline-flex", alignItems: "center", gap: 6
+            }}>
             @inkprinted <IconArrowRight size={14} />
           </a>
         </div>
@@ -558,8 +543,8 @@ const BrandLogoStrip = ({ visible = false }) => {
               opacity: 1,
               transition: "color 200ms"
             }}
-            onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.80)"}
-            onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.40)"}>
+              onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.80)"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.40)"}>
               CLIENT {i + 1}
             </span>
           ))}
