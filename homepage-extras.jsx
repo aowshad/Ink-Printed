@@ -143,7 +143,7 @@ const BeforeAfterSlider = () => {
               Specific URL pair; swap in Mark's real shot when supplied. */}
           <div style={{ position: "absolute", inset: 0 }}>
             <img
-              src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=1400&auto=format&fit=crop&q=85"
+              src="uploads/Tshirt%20desing.png"
               alt="Printed hoodie"
               loading="lazy"
               style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
