@@ -174,7 +174,7 @@ const BeforeAfterSlider = () => {
             padding: "4px 8px",
             borderRadius: 2,
             zIndex: 3
-          }}>Blank</span>
+          }}>No Customization</span>
           <span style={{
             position: "absolute", top: 16, right: 16,
             background: "var(--accent)", color: "#0A0A0A",
@@ -183,7 +183,7 @@ const BeforeAfterSlider = () => {
             padding: "4px 8px",
             borderRadius: 2,
             zIndex: 3
-          }}>Printed</span>
+          }}>With Customization</span>
 
           {/* Divider line + handle */}
           <div style={{
