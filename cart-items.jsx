@@ -140,8 +140,8 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
             transform: "translate(-50%, -50%)",
             width: 50, height: 50,
             borderRadius: 3,
-            border: "1px solid rgba(170,204,0,0.4)",
-            background: "rgba(170,204,0,0.08)",
+            border: "1px solid rgba(236,90,180,0.4)",
+            background: "rgba(236,90,180,0.08)",
             display: "grid", placeItems: "center"
           }}>
             <span style={{
@@ -303,7 +303,7 @@ const ActionLink = ({ icon, label, colour = "rgba(255,255,255,0.60)", onClick })
       transition: "color 200ms"
     }}
     onMouseEnter={e => {
-      e.currentTarget.style.color = isAccent ? "#BCDD1A" : "#fff";
+      e.currentTarget.style.color = isAccent ? "#F072C2" : "#fff";
     }}
     onMouseLeave={e => {
       e.currentTarget.style.color = colour;

@@ -236,8 +236,8 @@ const ReorderHero = ({ order }) => {
           transform: "translate(-50%, -50%)",
           width: 44, height: 44,
           borderRadius: 3,
-          border: "1px solid rgba(170,204,0,0.4)",
-          background: "rgba(170,204,0,0.08)",
+          border: "1px solid rgba(236,90,180,0.4)",
+          background: "rgba(236,90,180,0.08)",
           display: "grid", placeItems: "center"
         }}>
           <span style={{
@@ -436,7 +436,7 @@ const NewDesignTile = () => (
       color: "rgba(255,255,255,0.65)",
       transition: "background 200ms, color 200ms"
     }}
-    onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.background = "rgba(170,204,0,0.06)"; }}
+    onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.background = "rgba(236,90,180,0.06)"; }}
     onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.65)"; e.currentTarget.style.background = "var(--surface-2)"; }}>
       <IconPlusSm size={20} />
       <span style={{ fontSize: 11, fontWeight: 500 }}>Start new design</span>
@@ -496,7 +496,7 @@ const WishlistCard = ({ item }) => (
           display: "inline-grid", placeItems: "center",
           color: "var(--accent)"
         }}>
-        <IconHeartFill size={14} color="#AACC00" />
+        <IconHeartFill size={14} color="#EC5AB4" />
       </button>
     </div>
     <div style={{ marginTop: 6 }}>

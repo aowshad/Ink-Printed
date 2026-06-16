@@ -444,7 +444,7 @@ const BrandPanel = () => (
           }}>
             <span style={{
               width: 16, height: 16, borderRadius: "50%",
-              background: "rgba(170,204,0,0.15)",
+              background: "rgba(236,90,180,0.15)",
               color: "var(--accent)",
               display: "inline-grid", placeItems: "center",
               marginTop: 2, flexShrink: 0

@@ -6,7 +6,7 @@ const { useState: useStateExtras, useEffect: useEffectExtras, useRef: useRefExtr
 
 // ── Tiny acid-green star (used in marquee + reviews)
 const AcidStar = ({ size = 12 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="#AACC00" aria-hidden="true">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="#EC5AB4" aria-hidden="true">
     <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z" />
   </svg>
 );
@@ -210,7 +210,7 @@ const BeforeAfterSlider = () => {
             cursor: "ew-resize",
             zIndex: 3
           }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#AACC00" strokeWidth="2" strokeLinecap="round">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#EC5AB4" strokeWidth="2" strokeLinecap="round">
               <path d="M5 4 2 7l3 3" />
               <path d="m9 4 3 3-3 3" />
             </svg>

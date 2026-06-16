@@ -4,7 +4,7 @@ const { useState: useStateInfo } = React;
 // Star rating row
 const StarRow = ({ rating = 5, size = 13 }) => {
   const stars = [1,2,3,4,5].map(i => (
-    <IconStar key={i} size={size} filled={i <= Math.round(rating)} color="#AACC00" />
+    <IconStar key={i} size={size} filled={i <= Math.round(rating)} color="#EC5AB4" />
   ));
   return <span style={{ display: "inline-flex", gap: 2 }}>{stars}</span>;
 };
@@ -247,8 +247,8 @@ const QuantityCard = ({ qty, setQty, sizeIdx, setSizeIdx, multi, setMulti, sizeQ
           color: "rgba(255,255,255,0.65)",
           padding: 10,
           borderRadius: 4,
-          background: "rgba(170,204,0,0.06)",
-          border: "1px solid rgba(170,204,0,0.25)"
+          background: "rgba(236,90,180,0.06)",
+          border: "1px solid rgba(236,90,180,0.25)"
         }}>
           Out of stock in {COLOURS[0].name} {SIZES[sizeIdx]} —{" "}
           try another colour or <a href="#" style={{ color: "var(--accent)", fontWeight: 500 }}>notify me</a>
@@ -383,8 +383,8 @@ const QuickSpecsCard = ({ specs }) => (
 const BulkPrompt = () => (
   <div style={{
     marginTop: 12,
-    background: "rgba(170,204,0,0.06)",
-    border: "1px solid rgba(170,204,0,0.30)",
+    background: "rgba(236,90,180,0.06)",
+    border: "1px solid rgba(236,90,180,0.30)",
     borderRadius: 4,
     padding: "10px 12px",
     fontSize: 12,

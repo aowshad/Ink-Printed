@@ -225,7 +225,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
           <span style={{
             height: 20, padding: "0 8px",
             borderRadius: 10,
-            background: "rgba(170,204,0,0.15)",
+            background: "rgba(236,90,180,0.15)",
             color: "var(--accent)",
             fontSize: 11, fontWeight: 500,
             display: "inline-flex", alignItems: "center"
@@ -323,7 +323,7 @@ const SizeChip = ({ label, active, onClick }) => (
     padding: "0 10px",
     borderRadius: 4,
     border: "1px solid " + (active ? "var(--accent)" : "rgba(255,255,255,0.20)"),
-    background: active ? "rgba(170,204,0,0.10)" : "transparent",
+    background: active ? "rgba(236,90,180,0.10)" : "transparent",
     color: active ? "var(--accent)" : "rgba(255,255,255,0.85)",
     fontSize: 12, fontWeight: 500,
     transition: "background 200ms, color 200ms, border-color 200ms"
