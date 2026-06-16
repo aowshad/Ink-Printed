@@ -4,11 +4,11 @@
 const ProductBadge = ({ kind }) => {
   if (!kind) return null;
   const map = {
-    bestseller: { label: "Bestseller", bg: "var(--accent)", color: "#0A0A0A", outline: false },
-    new:        { label: "New",        bg: "#fff",          color: "#0A0A0A", outline: false },
-    onmodel:    { label: "On model",   bg: "transparent",   color: "#fff",    outline: true },
-    oos:        { label: "Out of stock", bg: "rgba(10,10,10,0.85)", color: "#fff", outline: true },
-    soon:       { label: "Coming soon", bg: "transparent",  color: "#fff",    outline: true }
+    bestseller: { label: "Bestseller", bg: "var(--accent)", color: "var(--accent-ink)", outline: false },
+    new:        { label: "New",        bg: "var(--on-media)", color: "var(--accent-ink)", outline: false },
+    onmodel:    { label: "On model",   bg: "transparent",   color: "var(--on-media)", outline: true },
+    oos:        { label: "Out of stock", bg: "rgba(10,10,10,0.85)", color: "var(--on-media)", outline: true },
+    soon:       { label: "Coming soon", bg: "transparent",  color: "var(--on-media)", outline: true }
   };
   const s = map[kind];
   if (!s) return null;
@@ -24,7 +24,7 @@ const ProductBadge = ({ kind }) => {
       borderRadius: 2,
       background: s.bg,
       color: s.color,
-      border: s.outline ? "1px solid rgba(255,255,255,0.6)" : "none",
+      border: s.outline ? "1px solid var(--on-media-65)" : "none",
       zIndex: 2,
       whiteSpace: "nowrap"
     }}>{s.label}</span>
@@ -45,12 +45,12 @@ const CardSwatchRow = ({ colours }) => {
             width: 14, height: 14,
             borderRadius: "50%",
             background: c.hex,
-            border: c.light ? "1px solid rgba(255,255,255,0.30)" : "0.5px solid transparent"
+            border: c.light ? "1px solid var(--text-30)" : "0.5px solid transparent"
           }} />
         );
       })}
       {more > 0 && (
-        <span style={{ fontSize: 11, color: "rgba(255,255,255,0.60)", marginLeft: 4 }}>
+        <span style={{ fontSize: 11, color: "var(--text-60)", marginLeft: 4 }}>
           +{more} more
         </span>
       )}
@@ -87,7 +87,7 @@ const PLPProductCard = ({ product: p }) => {
          background: "var(--surface)",
          borderRadius: 6,
          overflow: "hidden",
-         border: "0.5px solid " + (hover ? "var(--accent)" : "rgba(255,255,255,0.10)"),
+         border: "0.5px solid " + (hover ? "var(--accent)" : "var(--border)"),
          transition: "border-color 200ms ease-out, opacity 200ms",
          opacity: dimmed ? 0.5 : 1,
          display: "block",
@@ -110,12 +110,12 @@ const PLPProductCard = ({ product: p }) => {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "rgba(255,255,255,0.60)",
+            color: "var(--on-media-65)",
             zIndex: 2,
             transition: "color 200ms"
           }}
           onMouseEnter={e => e.currentTarget.style.color = "var(--accent)"}
-          onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.60)"}>
+          onMouseLeave={e => e.currentTarget.style.color = "var(--on-media-65)"}>
           <IconHeart size={16} />
         </button>
 
@@ -132,7 +132,7 @@ const PLPProductCard = ({ product: p }) => {
           position: "absolute", inset: 0,
           opacity: hover && !dimmed ? 1 : 0,
           transition: "opacity 240ms ease-out",
-          background: "#1A1A1A"
+          background: "var(--surface-2)"
         }}>
           <Silhouette kind={p.kind === "tee" ? "photo" : p.kind} />
         </div>
@@ -153,11 +153,11 @@ const PLPProductCard = ({ product: p }) => {
       </div>
 
       <div style={{ padding: 16 }}>
-        <div className="label-up" style={{ color: "rgba(255,255,255,0.40)" }}>
+        <div className="label-up" style={{ color: "var(--text-40)" }}>
           {tag}
         </div>
         <div style={{
-          fontSize: 16, fontWeight: 500, color: "#fff",
+          fontSize: 16, fontWeight: 500, color: "var(--text)",
           marginTop: 4, letterSpacing: "-0.01em"
         }}>{p.name}</div>
 
@@ -174,20 +174,20 @@ const PLPProductCard = ({ product: p }) => {
               fontSize: 10,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.40)",
+              color: "var(--text-40)",
               fontWeight: 500
             }}>From</div>
             <div style={{
-              fontSize: 16, fontWeight: 500, color: "var(--accent)",
+              fontSize: 16, fontWeight: 500, color: "var(--accent-line)",
               lineHeight: 1.1, marginTop: 2
             }}>£{p.from.toFixed(2)}</div>
           </div>
           {showRating ? (
             <div style={{
-              fontSize: 11, color: "rgba(255,255,255,0.60)",
+              fontSize: 11, color: "var(--text-60)",
               display: "inline-flex", alignItems: "center", gap: 4
             }}>
-              <IconStar size={11} filled color="#EC5AB4" />
+              <IconStar size={11} filled color="var(--accent-line)" />
               {p.rating} ({p.reviews})
             </div>
           ) : null}
@@ -200,9 +200,9 @@ const PLPProductCard = ({ product: p }) => {
 // Editorial tile (replaces a card slot)
 const EditorialTile = ({ label, headline, sub, link }) => (
   <a href="#" style={{
-    background: "#0A0A0A",
+    background: "var(--surface-2)",
     borderRadius: 6,
-    border: "0.5px solid rgba(255,255,255,0.10)",
+    border: "0.5px solid var(--border)",
     padding: 20,
     display: "flex",
     flexDirection: "column",
@@ -211,19 +211,19 @@ const EditorialTile = ({ label, headline, sub, link }) => (
     transition: "border-color 200ms"
   }}
   onMouseEnter={e => e.currentTarget.style.borderColor = "var(--accent)"}
-  onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.10)"}>
-    <div className="label-up" style={{ color: "var(--accent)" }}>{label}</div>
+  onMouseLeave={e => e.currentTarget.style.borderColor = "var(--border)"}>
+    <div className="label-up" style={{ color: "var(--accent-line)" }}>{label}</div>
     <div>
       <div style={{
         fontSize: 22, lineHeight: "28px", fontWeight: 500,
         letterSpacing: "-0.02em"
       }}>{headline}</div>
       <p style={{
-        fontSize: 13, color: "rgba(255,255,255,0.65)",
+        fontSize: 13, color: "var(--text-65)",
         margin: 0, marginTop: 8, lineHeight: 1.5
       }}>{sub}</p>
       <div style={{
-        marginTop: 14, color: "var(--accent)",
+        marginTop: 14, color: "var(--accent-line)",
         fontSize: 13, fontWeight: 500,
         display: "inline-flex", alignItems: "center", gap: 6
       }}>
@@ -293,7 +293,7 @@ const LoadMore = ({ loaded, total, onLoadMore, loadCount }) => {
       alignItems: "center",
       gap: 12
     }}>
-      <div style={{ fontSize: 12, color: "rgba(255,255,255,0.60)" }}>
+      <div style={{ fontSize: 12, color: "var(--text-60)" }}>
         Showing {showing} of {total}
       </div>
       <div style={{
@@ -304,7 +304,7 @@ const LoadMore = ({ loaded, total, onLoadMore, loadCount }) => {
         <div style={{
           width: `${pct}%`,
           height: "100%",
-          background: "#fff",
+          background: "var(--text)",
           transition: "width 400ms ease-out"
         }} />
       </div>
@@ -335,9 +335,9 @@ const PageBtn = ({ label, active }) => (
   <button style={{
     minWidth: 32, height: 32, padding: "0 10px",
     borderRadius: 16,
-    background: active ? "#fff" : "transparent",
-    color: active ? "#0A0A0A" : "rgba(255,255,255,0.80)",
-    border: active ? "1px solid transparent" : "1px solid rgba(255,255,255,0.15)",
+    background: active ? "var(--text)" : "transparent",
+    color: active ? "var(--bg)" : "var(--text-80)",
+    border: active ? "1px solid transparent" : "1px solid var(--border)",
     fontSize: 12, fontWeight: 500,
     transition: "all 200ms"
   }}>{label}</button>
@@ -358,12 +358,12 @@ const EmptyState = ({ onClear }) => (
     maxWidth: 480,
     margin: "0 auto"
   }}>
-    <div style={{ color: "rgba(255,255,255,0.30)" }}>
+    <div style={{ color: "var(--text-30)" }}>
       <IconSearchNo size={48} strokeWidth={1.25} />
     </div>
     <div style={{ fontSize: 24, fontWeight: 500, marginTop: 20, letterSpacing: "-0.01em" }}>No matches</div>
     <p style={{
-      fontSize: 14, color: "rgba(255,255,255,0.65)",
+      fontSize: 14, color: "var(--text-65)",
       marginTop: 8, maxWidth: 320, lineHeight: 1.5
     }}>Try removing a filter or two, or browse all t-shirts.</p>
     <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
@@ -390,7 +390,7 @@ const SEOBlock = () => (
       letterSpacing: "-0.01em"
     }}>About custom-printed t-shirts</h3>
     <div style={{
-      fontSize: 14, color: "rgba(255,255,255,0.65)",
+      fontSize: 14, color: "var(--text-65)",
       lineHeight: 1.6, marginTop: 12, maxWidth: 720
     }}>
       <p style={{ margin: 0 }}>
@@ -408,15 +408,15 @@ const SEOBlock = () => (
           height: 28, padding: "0 12px",
           borderRadius: 14,
           background: "var(--surface-2)",
-          color: "rgba(255,255,255,0.70)",
+          color: "var(--text-70)",
           fontSize: 11,
           display: "inline-flex",
           alignItems: "center",
           fontWeight: 500,
           transition: "background 200ms, color 200ms"
         }}
-        onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#0A0A0A"; }}
-        onMouseLeave={e => { e.currentTarget.style.background = "var(--surface-2)"; e.currentTarget.style.color = "rgba(255,255,255,0.70)"; }}
+        onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "var(--accent-ink)"; }}
+        onMouseLeave={e => { e.currentTarget.style.background = "var(--surface-2)"; e.currentTarget.style.color = "var(--text-70)"; }}
         >{t}</a>
       ))}
     </div>

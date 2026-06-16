@@ -4,7 +4,7 @@
 const MiniStepper = ({ value, setValue, onRemove }) => (
   <div style={{
     width: 96, height: 28,
-    border: "0.5px solid rgba(255,255,255,0.25)",
+    border: "0.5px solid var(--text-25)",
     borderRadius: 4,
     display: "grid",
     gridTemplateColumns: "28px 1fr 28px",
@@ -12,11 +12,11 @@ const MiniStepper = ({ value, setValue, onRemove }) => (
   }}>
     <button aria-label="Decrease"
       onClick={() => value <= 1 ? onRemove && onRemove() : setValue(value - 1)}
-      style={{ height: 28, color: "#fff" }}>
+      style={{ height: 28, color: "var(--text)" }}>
       <IconMinus size={12} />
     </button>
     <span style={{ textAlign: "center", fontSize: 13, fontWeight: 500 }}>{value}</span>
-    <button aria-label="Increase" onClick={() => setValue(value + 1)} style={{ height: 28, color: "#fff" }}>
+    <button aria-label="Increase" onClick={() => setValue(value + 1)} style={{ height: 28, color: "var(--text)" }}>
       <IconPlus size={12} />
     </button>
   </div>
@@ -33,7 +33,7 @@ const SizeBreakdownInset = ({ sizeQtys, setSizeQtys, editingSize, setEditingSize
       marginTop: 10
     }}>
       <div className="label-up" style={{
-        color: "rgba(255,255,255,0.40)",
+        color: "var(--text-40)",
         fontSize: 9,
         marginBottom: 8
       }}>Size breakdown</div>
@@ -44,12 +44,12 @@ const SizeBreakdownInset = ({ sizeQtys, setSizeQtys, editingSize, setEditingSize
           if (editing) {
             return (
               <span key={size} style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 12, color: "#fff" }}>{size}</span>
+                <span style={{ fontSize: 12, color: "var(--text)" }}>{size}</span>
                 <MiniStepper value={qty}
                   setValue={(v) => setSizeQtys({ ...sizeQtys, [size]: v })}
                   onRemove={() => setSizeQtys({ ...sizeQtys, [size]: 0 })} />
                 <button onClick={() => setEditingSize(null)}
-                  style={{ fontSize: 11, color: "var(--accent)", fontWeight: 500 }}>
+                  style={{ fontSize: 11, color: "var(--accent-line)", fontWeight: 500 }}>
                   Done
                 </button>
               </span>
@@ -59,7 +59,7 @@ const SizeBreakdownInset = ({ sizeQtys, setSizeQtys, editingSize, setEditingSize
             <button key={size} onClick={() => setEditingSize(size)}
               style={{
                 fontSize: 12,
-                color: "rgba(255,255,255,0.80)",
+                color: "var(--text-80)",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 4,
@@ -67,9 +67,9 @@ const SizeBreakdownInset = ({ sizeQtys, setSizeQtys, editingSize, setEditingSize
                 borderBottom: "1px dashed transparent",
                 transition: "border-color 200ms"
               }}
-              onMouseEnter={e => e.currentTarget.style.borderBottomColor = "rgba(255,255,255,0.4)"}
+              onMouseEnter={e => e.currentTarget.style.borderBottomColor = "var(--text-40)"}
               onMouseLeave={e => e.currentTarget.style.borderBottomColor = "transparent"}>
-              {size} <span style={{ color: "rgba(255,255,255,0.50)" }}>×</span> {qty}
+              {size} <span style={{ color: "var(--text-50)" }}>×</span> {qty}
             </button>
           );
         })}
@@ -81,9 +81,9 @@ const SizeBreakdownInset = ({ sizeQtys, setSizeQtys, editingSize, setEditingSize
 // Custom badge under design preview
 const ItemTypeBadge = ({ kind }) => {
   const map = {
-    custom:  { label: "Custom", bg: "#fff",          color: "#0A0A0A", outline: false },
-    text:    { label: "Text",   bg: "transparent",   color: "#fff",    outline: true },
-    blank:   { label: "Blank",  bg: "transparent",   color: "rgba(255,255,255,0.55)", outline: true }
+    custom:  { label: "Custom", bg: "var(--text)",   color: "var(--bg)", outline: false },
+    text:    { label: "Text",   bg: "transparent",   color: "var(--text)",    outline: true },
+    blank:   { label: "Blank",  bg: "transparent",   color: "var(--text-55)", outline: true }
   };
   const s = map[kind];
   if (!s) return null;
@@ -99,7 +99,7 @@ const ItemTypeBadge = ({ kind }) => {
       borderRadius: 2,
       background: s.bg,
       color: s.color,
-      border: s.outline ? "1px solid rgba(255,255,255,0.45)" : "none",
+      border: s.outline ? "1px solid var(--text-45)" : "none",
       whiteSpace: "nowrap"
     }}>{s.label}</span>
   );
@@ -159,7 +159,7 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
       {/* Col 2 — details */}
       <div style={{ minWidth: 0 }}>
         <div className="label-up" style={{
-          color: "rgba(255,255,255,0.40)",
+          color: "var(--text-40)",
           fontSize: 9
         }}>{item.subcategory}</div>
         <div style={{
@@ -167,13 +167,13 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
         }}>{item.productName}</div>
         {item.mode !== "quicktext" && (
           <div style={{
-            fontSize: 12, color: "rgba(255,255,255,0.65)",
+            fontSize: 12, color: "var(--text-65)",
             marginTop: 2
           }}>
             {item.decoration.colour} · {item.decoration.method}
             {item.decoration.setupFee && (
               <span style={{
-                marginLeft: 8, color: "var(--accent)", fontSize: 11, fontWeight: 500
+                marginLeft: 8, color: "var(--accent-line)", fontSize: 11, fontWeight: 500
               }}>+£{item.decoration.setupFee} embroidery setup</span>
             )}
           </div>
@@ -185,10 +185,10 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
             display: "flex", alignItems: "center", gap: 10,
             marginTop: 10
           }}>
-            <span style={{ fontSize: 12, color: "rgba(255,255,255,0.65)" }}>
+            <span style={{ fontSize: 12, color: "var(--text-65)" }}>
               Size {item.size}
             </span>
-            <span style={{ color: "rgba(255,255,255,0.30)" }}>·</span>
+            <span style={{ color: "var(--text-30)" }}>·</span>
             <MiniStepper value={item.qty}
               setValue={(v) => setItem({ ...item, qty: v })}
               onRemove={requestRemove} />
@@ -211,9 +211,9 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
               padding: 10,
               marginTop: 10,
               fontSize: 12,
-              color: "#fff"
+              color: "var(--text)"
             }}>
-              <span style={{ color: "rgba(255,255,255,0.50)" }}>Text:</span>{" "}
+              <span style={{ color: "var(--text-50)" }}>Text:</span>{" "}
               <span style={{ fontStyle: "italic" }}>"{item.text}"</span>
             </div>
             <div style={{ marginTop: 10 }}>
@@ -250,7 +250,7 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
           gap: 16,
           marginTop: 14
         }}>
-          <ActionLink icon={<IconPencil size={12} />} colour="var(--accent)" label="Edit design" />
+          <ActionLink icon={<IconPencil size={12} />} colour="var(--accent-line)" label="Edit design" />
           {item.mode === "multi" && (
             <ActionLink icon={<IconPlus size={12} />} label="Edit quantities" onClick={() => {
               // Open first size for inline edit
@@ -272,7 +272,7 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
         <div style={{ fontSize: 18, fontWeight: 500, letterSpacing: "-0.01em" }}>
           £{lineTotal.toFixed(2)}
         </div>
-        <div style={{ fontSize: 10, color: "rgba(255,255,255,0.60)" }}>
+        <div style={{ fontSize: 10, color: "var(--text-60)" }}>
           £{item.unitPrice.toFixed(2)} × {units}
         </div>
         {item.eligibleBulk && (
@@ -280,7 +280,7 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
             fontSize: 9,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "var(--accent)",
+            color: "var(--accent-line)",
             fontWeight: 500,
             marginTop: 4
           }}>Eligible for bulk discount</div>
@@ -290,8 +290,8 @@ const CartLineItem = ({ item, setItem, requestRemove }) => {
   );
 };
 
-const ActionLink = ({ icon, label, colour = "rgba(255,255,255,0.60)", onClick }) => {
-  const isAccent = colour === "var(--accent)";
+const ActionLink = ({ icon, label, colour = "var(--text-60)", onClick }) => {
+  const isAccent = colour === "var(--accent-line)";
   return (
     <button onClick={onClick} style={{
       display: "inline-flex",
@@ -303,7 +303,7 @@ const ActionLink = ({ icon, label, colour = "rgba(255,255,255,0.60)", onClick })
       transition: "color 200ms"
     }}
     onMouseEnter={e => {
-      e.currentTarget.style.color = isAccent ? "#F072C2" : "#fff";
+      e.currentTarget.style.color = isAccent ? "var(--accent)" : "var(--text)";
     }}
     onMouseLeave={e => {
       e.currentTarget.style.color = colour;
@@ -334,9 +334,9 @@ const SavedForLater = ({ items }) => {
           fontSize: 14,
           fontWeight: 500
         }}>
-        Saved for later <span style={{ color: "rgba(255,255,255,0.50)", marginLeft: 6, fontWeight: 400 }}>({items.length})</span>
+        Saved for later <span style={{ color: "var(--text-50)", marginLeft: 6, fontWeight: 400 }}>({items.length})</span>
         <IconChevronDown size={14} style={{
-          color: "rgba(255,255,255,0.50)",
+          color: "var(--text-50)",
           transform: open ? "rotate(180deg)" : "rotate(0)",
           transition: "transform 200ms"
         }} />
@@ -372,9 +372,9 @@ const SavedForLater = ({ items }) => {
                   display: "flex", gap: 14, marginTop: 6
                 }}>
                   <button style={{
-                    fontSize: 11, color: "var(--accent)", fontWeight: 500
+                    fontSize: 11, color: "var(--accent-line)", fontWeight: 500
                   }}>Move to basket</button>
-                  <button style={{ fontSize: 11, color: "rgba(255,255,255,0.60)" }}>Remove</button>
+                  <button style={{ fontSize: 11, color: "var(--text-60)" }}>Remove</button>
                 </div>
               </div>
             </div>

@@ -66,7 +66,7 @@ const CategoryTile = ({ name, count, kind, label }) => {
         display: "flex", flexDirection: "column", gap: 6
       }}>
         <div style={{
-          fontSize: 28, fontWeight: 500, color: "#fff",
+          fontSize: 28, fontWeight: 500, color: "var(--on-media)",
           letterSpacing: "-0.02em", lineHeight: 1.1
         }}>{name}</div>
         <div style={{ fontSize: 13, color: "var(--accent)", fontWeight: 500 }}>{count}</div>
@@ -101,7 +101,7 @@ const HowItWorks = () => {
                 letterSpacing: "-0.04em"
               }}>{s.n}</div>
               <div style={{
-                fontSize: 20, fontWeight: 500, color: "#fff",
+                fontSize: 20, fontWeight: 500, color: "var(--text)",
                 marginTop: 24, letterSpacing: "-0.01em"
               }}>{s.t}</div>
               <div style={{
@@ -198,15 +198,15 @@ const Bestsellers = () => {
                   height: 40,
                   padding: "0 4px",
                   background: "transparent",
-                  color: active ? "#fff" : "rgba(255,255,255,0.70)",
+                  color: active ? "var(--text)" : "var(--text-70)",
                   fontSize: 14,
                   fontWeight: active ? 500 : 400,
                   borderBottom: active ? "1px solid var(--accent)" : "1px solid transparent",
                   marginBottom: -1,
                   transition: "color 200ms, border-color 200ms"
                 }}
-                onMouseEnter={e => { if (!active) e.currentTarget.style.color = "#fff"; }}
-                onMouseLeave={e => { if (!active) e.currentTarget.style.color = "rgba(255,255,255,0.70)"; }}>
+                onMouseEnter={e => { if (!active) e.currentTarget.style.color = "var(--text)"; }}
+                onMouseLeave={e => { if (!active) e.currentTarget.style.color = "var(--text-70)"; }}>
                 {t.label}
               </button>
             );
@@ -255,7 +255,7 @@ const ghostBtn = {
   border: "1px solid var(--text-20)",
   borderRadius: 4,
   display: "inline-flex", alignItems: "center", justifyContent: "center",
-  color: "#fff",
+  color: "var(--text)",
   transition: "border-color 200ms, background 200ms"
 };
 
@@ -296,7 +296,7 @@ const ProductCard = ({ name, from, kind, index }) => {
         </div>
       </div>
       <div style={{ padding: 16 }}>
-        <div style={{ fontSize: 15, fontWeight: 500, color: "#fff" }}>{name}</div>
+        <div style={{ fontSize: 15, fontWeight: 500, color: "var(--text)" }}>{name}</div>
         <div style={{ marginTop: 6, fontSize: 14 }}>
           <span style={{ color: "var(--text-60)" }}>From £</span>
           <span style={{ color: "var(--accent)", fontWeight: 500 }}>{from}</span>

@@ -13,7 +13,7 @@ const PricingBand = () => {
           alignItems: "center"
         }}>
           <div>
-            <h2 className="h2" style={{ color: "#0A0A0A", maxWidth: 640 }}>
+            <h2 className="h2" style={{ color: "var(--accent-ink)", maxWidth: 640 }}>
               No setup fees. No minimums.<br />One price per item.
             </h2>
             <p style={{
@@ -54,7 +54,7 @@ const PricingBand = () => {
               <div style={{
                 fontSize: 24,
                 fontWeight: 700,
-                color: "#0A0A0A",
+                color: "var(--accent-ink)",
                 letterSpacing: "-0.02em",
                 marginTop: 6
               }}>{off}</div>
@@ -94,7 +94,7 @@ const Gallery = () => {
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 32 }}>
             <h2 className="h2" style={{ maxWidth: 720 }}>Customer prints, in the wild.</h2>
             <a href="Listing.html" style={{
-              color: "var(--accent)", fontSize: 14, fontWeight: 500,
+              color: "var(--accent-line)", fontSize: 14, fontWeight: 500,
               display: "inline-flex", alignItems: "center", gap: 8
             }}>
               See full gallery <IconArrowRight size={14} />
@@ -145,13 +145,13 @@ const ContentBlocker = () => (
     gap: 12,
     fontFamily: '"JetBrains Mono", monospace',
     fontSize: 12,
-    color: "var(--accent)",
+    color: "var(--accent-line)",
     letterSpacing: "0.02em",
     textTransform: "uppercase"
   }}>
     <span style={{
       background: "var(--accent)",
-      color: "#0A0A0A",
+      color: "var(--accent-ink)",
       fontWeight: 700,
       padding: "2px 6px",
       borderRadius: 2,
@@ -172,7 +172,7 @@ const GalleryTile = ({ tag, kind, src, style }) => {
         position: "relative",
         borderRadius: 6,
         overflow: "hidden",
-        border: hover ? "1px solid var(--accent)" : "1px solid var(--border)",
+        border: hover ? "1px solid var(--accent-line)" : "1px solid var(--border)",
         transition: "border-color 200ms ease-out",
         background: "var(--surface)",
         display: "block",
@@ -193,8 +193,8 @@ const GalleryTile = ({ tag, kind, src, style }) => {
         transform: hover ? "translateY(0)" : "translateY(-4px)",
         transition: "opacity 200ms ease-out, transform 200ms ease-out",
         background: "rgba(10,10,10,0.85)",
-        border: "1px solid var(--text-15)",
-        color: "#fff",
+        border: "1px solid rgba(255,255,255,0.15)",
+        color: "var(--on-media)",
         fontSize: 11,
         letterSpacing: "0.06em",
         textTransform: "uppercase",
@@ -231,7 +231,7 @@ const TrustStrip = () => {
             <div style={{
               fontSize: 56,
               fontWeight: 700,
-              color: "var(--accent)",
+              color: "var(--accent-line)",
               letterSpacing: "-0.03em",
               lineHeight: 1
             }}>{n}</div>
@@ -348,7 +348,7 @@ const Footer = () => {
 
             <div style={{ marginTop: 32 }}>
               <div className="label-up" style={{
-                color: "#fff",
+                color: "var(--text)",
                 marginBottom: 12,
                 fontWeight: 500,
                 opacity: 0.9,
@@ -366,14 +366,14 @@ const Footer = () => {
                     background: "transparent",
                     border: "1px solid var(--text-20)",
                     borderRadius: 4,
-                    color: "#fff",
+                    color: "var(--text)",
                     padding: "0 14px",
                     fontFamily: "inherit",
                     fontSize: 14,
                     outline: "none"
                   }}
-                  onFocus={e => e.target.style.borderColor = "var(--accent)"}
-                  onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.20)"}
+                  onFocus={e => e.target.style.borderColor = "var(--accent-line)"}
+                  onBlur={e => e.target.style.borderColor = "var(--text-20)"}
                 />
                 <button type="submit" className="btn btn-primary">
                   Subscribe <IconArrowRight size={14} className="arrow" />
@@ -385,17 +385,17 @@ const Footer = () => {
           {/* Link cols */}
           {cols.map(c => (
             <div key={c.title}>
-              <div className="label-up" style={{ color: "var(--accent)", marginBottom: 18 }}>{c.title}</div>
+              <div className="label-up" style={{ color: "var(--accent-line)", marginBottom: 18 }}>{c.title}</div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
                 {c.items.map(([label, href]) => (
                   <li key={label}>
                     <a href={href} style={{
                       fontSize: 14,
-                      color: "rgba(255,255,255,0.7)",
+                      color: "var(--text-70)",
                       transition: "color 200ms"
                     }}
-                    onMouseEnter={e => e.target.style.color = "#fff"}
-                    onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.7)"}
+                    onMouseEnter={e => e.target.style.color = "var(--text)"}
+                    onMouseLeave={e => e.target.style.color = "var(--text-70)"}
                     >{label}</a>
                   </li>
                 ))}
@@ -424,7 +424,7 @@ const Footer = () => {
                 fontSize: 10,
                 fontWeight: 500,
                 letterSpacing: "0.06em",
-                color: "rgba(255,255,255,0.55)",
+                color: "var(--text-55)",
                 border: "1px solid var(--text-15)",
                 borderRadius: 3,
                 padding: "5px 8px",
@@ -434,7 +434,7 @@ const Footer = () => {
               }}>{b}</span>
             ))}
           </div>
-          <div style={{ display: "flex", gap: 16, justifyContent: "flex-end", color: "rgba(255,255,255,0.5)" }}>
+          <div style={{ display: "flex", gap: 16, justifyContent: "flex-end", color: "var(--text-50)" }}>
             <a href="#" aria-label="Instagram"><IconInstagram /></a>
             <a href="#" aria-label="TikTok"><IconTikTok /></a>
             <a href="#" aria-label="Facebook"><IconFacebook /></a>

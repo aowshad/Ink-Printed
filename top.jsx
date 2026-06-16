@@ -44,13 +44,13 @@ const PromoBanner = () => {
 
   const variantStyle = (() => {
     if (PROMO.type === "shipping") {
-      return { background: "var(--surface)", color: "#fff", border: "none" };
+      return { background: "var(--surface)", color: "var(--text)", border: "none" };
     }
     if (PROMO.type === "announcement") {
-      return { background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,0.20)" };
+      return { background: "transparent", color: "var(--text)", border: "1px solid var(--text-20)" };
     }
     // default 'sale'
-    return { background: "var(--accent)", color: "#0A0A0A", border: "none" };
+    return { background: "var(--accent)", color: "var(--accent-ink)", border: "none" };
   })();
 
   const dismiss = () => {
@@ -153,6 +153,9 @@ function useReveal() {
   return ref;
 }
 
+// ThemeToggle is defined in placeholders.jsx (loaded on every page) and referenced
+// here via the global scope, so the Login page (which omits top.jsx) can reuse it.
+
 // 01 — Utility bar (with PromoBanner above)
 const UtilityBar = () => {
   const items = ["10+ YEARS PRINTING", "FAST UK DISPATCH", "SIMPLE PRICING"];
@@ -180,10 +183,11 @@ const UtilityBar = () => {
         flexWrap: "nowrap",
         minWidth: 0,
         padding: "0 12px",
+        position: "relative",
         fontSize: 12,
         letterSpacing: "0.06em",
         textTransform: "uppercase",
-        color: "rgba(255,255,255,0.7)",
+        color: "var(--text-70)",
         fontWeight: 500
       }}>
       {items.map((s, i) => (
@@ -198,6 +202,9 @@ const UtilityBar = () => {
           )}
         </React.Fragment>
       ))}
+      <div style={{ position: "absolute", right: 12, top: 0, bottom: 0, display: "flex", alignItems: "center" }}>
+        <ThemeToggle />
+      </div>
     </div>
     </>
   );
@@ -368,7 +375,7 @@ const Nav = () => {
               position: "absolute",
               top: "100%",
               left: 0, right: 0,
-              borderBottom: "1px solid rgba(255,255,255,0.10)",
+              borderBottom: "1px solid var(--border)",
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(-8px)",
               transition: visible
@@ -388,7 +395,7 @@ const Nav = () => {
 const iconBtn = {
   width: 32, height: 32,
   display: "inline-flex", alignItems: "center", justifyContent: "center",
-  color: "#fff",
+  color: "var(--text)",
   borderRadius: 2,
   transition: "color 200ms ease-out"
 };
@@ -404,10 +411,10 @@ const NavLink = ({ item, isOpen, onEnter }) => {
         gap: 4,
         height: 72,
         fontSize: 14,
-        color: "#fff",
+        color: "var(--text)",
         fontWeight: 400,
         position: "relative",
-        borderBottom: isOpen ? "1px solid var(--accent)" : "1px solid transparent",
+        borderBottom: isOpen ? "1px solid var(--accent-line)" : "1px solid transparent",
         transition: "border-color 200ms ease-out"
       }}
       className="nav-link"
@@ -421,7 +428,7 @@ const NavLink = ({ item, isOpen, onEnter }) => {
           left: 0; right: 0;
           bottom: 26px;
           height: 1px;
-          background: var(--accent);
+          background: var(--accent-line);
           transform: scaleX(0);
           transform-origin: center;
           transition: transform 200ms ease-out;
@@ -478,16 +485,16 @@ const Hero = () => {
                 width: 48, height: 48,
                 borderRadius: "50%",
                 background: "var(--bg)",
-                border: "1px solid rgba(255,255,255,0.25)",
-                color: "#fff",
+                border: "1px solid var(--text-25)",
+                color: "var(--text)",
                 fontSize: 13,
                 fontWeight: 500,
                 display: "inline-grid",
                 placeItems: "center",
                 transition: "border-color 200ms, background 200ms"
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.25)"; }}>
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--accent-line)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--text-25)"; }}>
               {shotIdx + 1}/{totalShots}
             </button>
             <span style={{
@@ -495,7 +502,7 @@ const Hero = () => {
               fontWeight: 500,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              color: "rgba(255,255,255,0.85)"
+              color: "var(--on-media)"
             }}>
               Embroidered · Heavyweight hoodie
             </span>
@@ -512,7 +519,7 @@ const Hero = () => {
           <div style={{ maxWidth: 480 }}>
             <div className="eyebrow">Custom Print & Embroidery</div>
             <h1 className="h1" style={{ marginTop: 24, textWrap: "balance" }}>
-              Print something <span style={{ color: "var(--accent)" }}>worth</span> wearing.
+              Print something <span style={{ color: "var(--accent-line)" }}>worth</span> wearing.
             </h1>
             <p style={{
               fontSize: 18, lineHeight: "28px",

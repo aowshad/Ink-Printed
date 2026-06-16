@@ -1,0 +1,118 @@
+/* ============================================================
+   InkPrinted — Theme tokens (single source of truth)
+   Dark is the default (:root). Light overrides the SAME names
+   under html[data-theme="light"]. Nothing else should declare
+   color variables — pages link this BEFORE their inline <style>.
+
+   Token groups
+   ------------
+   Semantic surfaces/text : --bg, --surface, --surface-2, --text, --text-muted, --border …
+   Accent                 : --accent (FILL), --accent-ink (ON fill), --accent-line (text/link/icon/border on bg)
+   Translucent text scale : --text-92 … --text-025  (hierarchy: high = stronger)
+   Fixed (never flip)     : --on-media, --media-scrim, --panel-dark  (text/overlays over photos & the editorial black panel)
+   ============================================================ */
+
+:root {
+  /* ---- Surfaces ---- */
+  --bg:            #0A0A0A;
+  --bg-deeper:     #000000;
+  --surface:       #141414;
+  --surface-2:     #1A1A1A;
+  --surface-hover: #1C1C1C;
+  --border:        rgba(255,255,255,0.10);
+
+  /* ---- Text ---- */
+  --text:          #FFFFFF;
+  --text-muted:    rgba(255,255,255,0.62);
+
+  /* ---- Accent ---- */
+  --accent:        #EC5AB4;   /* fills only */
+  --accent-hover:  #F072C2;   /* fill hover */
+  --accent-ink:    #0A0A0A;   /* text/icon ON an accent fill */
+  --accent-line:   #EC5AB4;   /* accent as text/link/icon/border on the page bg */
+
+  /* ---- Translucent text/hairline scale (white over dark) ---- */
+  --text-92:  rgba(255,255,255,0.92);
+  --text-90:  rgba(255,255,255,0.90);
+  --text-85:  rgba(255,255,255,0.85);
+  --text-80:  rgba(255,255,255,0.80);
+  --text-75:  rgba(255,255,255,0.75);
+  --text-70:  rgba(255,255,255,0.70);
+  --text-65:  rgba(255,255,255,0.65);
+  --text-60:  rgba(255,255,255,0.60);
+  --text-55:  rgba(255,255,255,0.55);
+  --text-50:  rgba(255,255,255,0.50);
+  --text-45:  rgba(255,255,255,0.45);
+  --text-40:  rgba(255,255,255,0.40);
+  --text-30:  rgba(255,255,255,0.30);
+  --text-25:  rgba(255,255,255,0.25);
+  --text-20:  rgba(255,255,255,0.20);
+  --text-15:  rgba(255,255,255,0.15);
+  --text-10:  rgba(255,255,255,0.10);
+  --text-08:  rgba(255,255,255,0.08);
+  --text-06:  rgba(255,255,255,0.06);
+  --text-05:  rgba(255,255,255,0.05);
+  --text-04:  rgba(255,255,255,0.04);
+  --text-025: rgba(255,255,255,0.025);
+
+  /* ---- Fixed: over photographic media + the always-dark editorial panel ---- */
+  --on-media:    #FFFFFF;            /* text/icons sitting on top of photos */
+  --on-media-65: rgba(255,255,255,0.65);
+  --media-scrim: rgba(10,10,10,0.55);/* dark gradient overlay on imagery */
+  --panel-dark:  #000000;            /* Login BrandPanel — intentionally dark in both themes */
+}
+
+/* ============================================================
+   LIGHT THEME — warm, intentional, hairline separation only.
+   Accent stays #EC5AB4 for FILLS; as text/icon/border it becomes
+   --accent-line (#A01E63 deep raspberry) to clear WCAG AA.
+   ============================================================ */
+html[data-theme="light"] {
+  /* ---- Surfaces ---- */
+  --bg:            #F6F6F3;   /* warm off-white */
+  --bg-deeper:     #ECECE6;   /* subtle darker band (utility bar) */
+  --surface:       #FFFFFF;
+  --surface-2:     #F0F0EC;
+  --surface-hover: #EFEFEA;
+  --border:        rgba(10,10,10,0.12);
+
+  /* ---- Text ---- */
+  --text:          #0A0A0A;
+  --text-muted:    #5C5C56;
+
+  /* ---- Accent ---- */
+  --accent:        #EC5AB4;   /* fill unchanged */
+  --accent-hover:  #E14AA6;   /* fill hover deepens slightly */
+  --accent-ink:    #0A0A0A;   /* near-black ink on pink reads premium */
+  --accent-line:   #A01E63;   /* deep raspberry for accent text/links/icons/borders */
+
+  /* ---- Translucent scale, mirrored to ink and tuned for AA where used as text ---- */
+  --text-92:  #161616;
+  --text-90:  #1C1C1C;
+  --text-85:  #24241F;
+  --text-80:  #2C2C26;
+  --text-75:  #34342E;
+  --text-70:  #3D3D36;
+  --text-65:  #46463F;
+  --text-60:  #54544D;
+  --text-55:  #5A5A52;
+  --text-50:  #5C5C56;   /* == muted; keeps small secondary text AA */
+  --text-45:  #67675F;
+  --text-40:  #6E6E66;   /* tertiary labels — subtle (≈AA-large) */
+  --text-30:  rgba(10,10,10,0.42);
+  --text-25:  rgba(10,10,10,0.36);
+  --text-20:  rgba(10,10,10,0.26);
+  --text-15:  rgba(10,10,10,0.18);
+  --text-10:  rgba(10,10,10,0.12);
+  --text-08:  rgba(10,10,10,0.10);
+  --text-06:  rgba(10,10,10,0.08);
+  --text-05:  rgba(10,10,10,0.07);
+  --text-04:  rgba(10,10,10,0.06);
+  --text-025: rgba(10,10,10,0.045);
+
+  /* ---- Fixed tokens stay identical (photos & editorial panel remain dark) ---- */
+  --on-media:    #FFFFFF;
+  --on-media-65: rgba(255,255,255,0.65);
+  --media-scrim: rgba(10,10,10,0.55);
+  --panel-dark:  #000000;
+}

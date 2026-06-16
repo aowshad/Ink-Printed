@@ -56,7 +56,7 @@ const ACCORDION_ROWS = [
     body: (
       <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
         <thead>
-          <tr style={{ color: "rgba(255,255,255,0.50)" }}>
+          <tr style={{ color: "var(--text-50)" }}>
             <th style={tHead}>Size</th>
             <th style={tHead}>Chest (cm)</th>
             <th style={tHead}>Length (cm)</th>
@@ -65,9 +65,9 @@ const ACCORDION_ROWS = [
         </thead>
         <tbody>
           {[["XS","84","42","33"], ["S","88","43","34.6"], ["M","92","44","36.2"], ["L","96","45","37.8"], ["XL","100","46","39.4"]].map(r => (
-            <tr key={r[0]} style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <tr key={r[0]} style={{ borderTop: "1px solid var(--text-06)" }}>
               {r.map((c, i) => (
-                <td key={i} style={{ ...tCell, fontWeight: i === 0 ? 500 : 400, color: i === 0 ? "#fff" : "rgba(255,255,255,0.75)" }}>{c}</td>
+                <td key={i} style={{ ...tCell, fontWeight: i === 0 ? 500 : 400, color: i === 0 ? "var(--text)" : "var(--text-75)" }}>{c}</td>
               ))}
             </tr>
           ))}
@@ -92,7 +92,7 @@ const DetailAccordion = () => {
         const open = openId === r.id;
         return (
           <div key={r.id} style={{
-            borderTop: i > 0 ? "1px solid rgba(255,255,255,0.10)" : "none"
+            borderTop: i > 0 ? "1px solid var(--border)" : "none"
           }}>
             <button
               onClick={() => setOpenId(open ? null : r.id)}
@@ -104,12 +104,12 @@ const DetailAccordion = () => {
                 justifyContent: "space-between",
                 fontSize: 15,
                 fontWeight: 500,
-                color: "#fff",
+                color: "var(--text)",
                 padding: 0
               }}>
               {r.title}
               <span style={{
-                color: "rgba(255,255,255,0.50)",
+                color: "var(--text-50)",
                 display: "inline-flex",
                 transition: "transform 200ms ease-out",
                 transform: open ? "rotate(45deg)" : "rotate(0)"
@@ -127,7 +127,7 @@ const DetailAccordion = () => {
                   paddingBottom: 24,
                   fontSize: 14,
                   lineHeight: 1.6,
-                  color: "rgba(255,255,255,0.70)",
+                  color: "var(--text-70)",
                   maxWidth: 760
                 }}>
                   {r.body}
@@ -162,7 +162,7 @@ const ReviewsSection = () => {
       }}>
         <h2 style={{ fontSize: 22, fontWeight: 500, margin: 0, letterSpacing: "-0.01em" }}>Reviews</h2>
         <a href="#" style={{
-          color: "var(--accent)", fontSize: 14, fontWeight: 500,
+          color: "var(--accent-line)", fontSize: 14, fontWeight: 500,
           display: "inline-flex", alignItems: "center", gap: 6
         }}>
           Write a review <IconArrowRight size={14} />
@@ -182,7 +182,7 @@ const ReviewsSection = () => {
         <div>
           <div style={{ fontSize: 48, fontWeight: 500, lineHeight: 1, letterSpacing: "-0.02em" }}>4.9</div>
           <div style={{ marginTop: 8 }}><StarRow rating={5} size={14} /></div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.60)", marginTop: 6 }}>{total} reviews</div>
+          <div style={{ fontSize: 12, color: "var(--text-60)", marginTop: 6 }}>{total} reviews</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
           {[5,4,3,2,1].map(n => {
@@ -193,15 +193,15 @@ const ReviewsSection = () => {
                 gridTemplateColumns: "32px 1fr 32px",
                 gap: 12, alignItems: "center"
               }}>
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.60)" }}>{n}★</span>
+                <span style={{ fontSize: 13, color: "var(--text-60)" }}>{n}★</span>
                 <div style={{ background: "var(--surface-2)", height: 6, borderRadius: 3, overflow: "hidden" }}>
                   <div style={{
                     height: "100%", width: `${pct}%`,
-                    background: "rgba(255,255,255,0.90)",
+                    background: "var(--text-90)",
                     transition: "width 600ms ease-out"
                   }} />
                 </div>
-                <span style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", textAlign: "right" }}>{counts[n]}</span>
+                <span style={{ fontSize: 13, color: "var(--text-60)", textAlign: "right" }}>{counts[n]}</span>
               </div>
             );
           })}
@@ -210,7 +210,7 @@ const ReviewsSection = () => {
 
       {/* Customer photos */}
       <div style={{ marginBottom: 24 }}>
-        <div className="label-up" style={{ color: "rgba(255,255,255,0.50)", marginBottom: 12 }}>Customer photos</div>
+        <div className="label-up" style={{ color: "var(--text-50)", marginBottom: 12 }}>Customer photos</div>
         <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
           {Array.from({ length: 7 }).map((_, i) => (
             <button key={i} style={{
@@ -225,7 +225,7 @@ const ReviewsSection = () => {
             </button>
           ))}
           <a href="#" style={{
-            color: "var(--accent)", fontSize: 13, fontWeight: 500, marginLeft: 4,
+            color: "var(--accent-line)", fontSize: 13, fontWeight: 500, marginLeft: 4,
             display: "inline-flex", alignItems: "center", gap: 6
           }}>
             See all <IconArrowRight size={13} />
@@ -243,20 +243,20 @@ const ReviewsSection = () => {
             <button key={f} onClick={() => setFilter(f)} style={{
               height: 32, padding: "0 14px",
               borderRadius: 16,
-              border: "1px solid " + (filter === f ? "var(--accent)" : "rgba(255,255,255,0.15)"),
+              border: "1px solid " + (filter === f ? "var(--accent-line)" : "var(--text-15)"),
               background: filter === f ? "rgba(236,90,180,0.10)" : "transparent",
-              color: filter === f ? "var(--accent)" : "rgba(255,255,255,0.75)",
+              color: filter === f ? "var(--accent-line)" : "var(--text-75)",
               fontSize: 13,
               fontWeight: 500,
               transition: "all 200ms"
             }}>{f}</button>
           ))}
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "rgba(255,255,255,0.60)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13, color: "var(--text-60)" }}>
           Sort by:
           <select style={{
-            background: "var(--surface)", color: "#fff",
-            border: "1px solid rgba(255,255,255,0.15)",
+            background: "var(--surface)", color: "var(--text)",
+            border: "1px solid var(--text-15)",
             borderRadius: 4, padding: "6px 10px",
             fontSize: 13, fontFamily: "inherit"
           }}>
@@ -283,11 +283,11 @@ const ReviewsSection = () => {
             <StarRow rating={r.rating} size={13} />
             <p style={{
               fontSize: 14, lineHeight: 1.5,
-              color: "rgba(255,255,255,0.80)",
+              color: "var(--text-80)",
               margin: "10px 0 12px"
             }}>"{r.body}"</p>
-            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.50)" }}>
-              {r.name} · {r.when}{r.verified && <> · <span style={{ color: "var(--accent)" }}>Verified buyer</span></>}
+            <div style={{ fontSize: 11, color: "var(--text-50)" }}>
+              {r.name} · {r.when}{r.verified && <> · <span style={{ color: "var(--accent-line)" }}>Verified buyer</span></>}
             </div>
           </div>
         ))}
@@ -360,13 +360,13 @@ const CrossSellCard = ({ name, from, kind, rating, reviews }) => {
       <div style={{ padding: 14 }}>
         <div style={{ fontSize: 14, fontWeight: 500 }}>{name}</div>
         <div style={{ marginTop: 4, fontSize: 13 }}>
-          <span style={{ color: "rgba(255,255,255,0.55)" }}>From £</span>
-          <span style={{ color: "var(--accent)", fontWeight: 500 }}>{from}</span>
+          <span style={{ color: "var(--text-55)" }}>From £</span>
+          <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>{from}</span>
         </div>
         <div style={{
           marginTop: 6,
           fontSize: 11,
-          color: "rgba(255,255,255,0.50)",
+          color: "var(--text-50)",
           display: "flex", alignItems: "center", gap: 6
         }}>
           <StarRow rating={rating} size={11} />

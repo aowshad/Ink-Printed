@@ -11,7 +11,7 @@ const FilterGroup = ({ title, openDefault = false, count = null, children }) => 
   const [open, setOpen] = useState(openDefault);
   return (
     <div style={{
-      borderBottom: "1px solid rgba(255,255,255,0.10)",
+      borderBottom: "1px solid var(--border)",
       padding: "16px 0"
     }}>
       <button onClick={() => setOpen(o => !o)} style={{
@@ -20,19 +20,19 @@ const FilterGroup = ({ title, openDefault = false, count = null, children }) => 
         alignItems: "center",
         justifyContent: "space-between"
       }}>
-        <span className="label-up" style={{ color: "rgba(255,255,255,0.60)" }}>
+        <span className="label-up" style={{ color: "var(--text-60)" }}>
           {title}
           {count != null && count > 0 && (
             <span style={{
               marginLeft: 8,
               fontSize: 10,
-              color: "var(--accent)",
+              color: "var(--accent-line)",
               fontWeight: 500
             }}>{count}</span>
           )}
         </span>
         <span style={{
-          color: "rgba(255,255,255,0.50)",
+          color: "var(--text-50)",
           display: "inline-flex",
           transition: "transform 200ms ease-out",
           transform: open ? "rotate(45deg)" : "rotate(0)"
@@ -67,7 +67,7 @@ const Checkbox = ({ checked, onChange, label, count }) => (
     <span style={{
       width: 16, height: 16,
       borderRadius: 3,
-      border: checked ? "1px solid var(--accent)" : "1px solid rgba(255,255,255,0.30)",
+      border: checked ? "1px solid var(--accent)" : "1px solid var(--text-30)",
       background: checked ? "var(--accent)" : "transparent",
       display: "inline-flex",
       alignItems: "center",
@@ -77,15 +77,15 @@ const Checkbox = ({ checked, onChange, label, count }) => (
     }}>
       {checked && (
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M2 5l2 2 4-4" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 5l2 2 4-4" stroke="var(--accent-ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )}
     </span>
     <input type="checkbox" checked={checked} onChange={onChange}
            style={{ position: "absolute", opacity: 0, pointerEvents: "none" }} />
-    <span style={{ fontSize: 13, color: "rgba(255,255,255,0.80)", flex: 1 }}>{label}</span>
+    <span style={{ fontSize: 13, color: "var(--text-80)", flex: 1 }}>{label}</span>
     {count != null && (
-      <span style={{ fontSize: 11, color: "rgba(255,255,255,0.40)" }}>{count}</span>
+      <span style={{ fontSize: 11, color: "var(--text-40)" }}>{count}</span>
     )}
   </label>
 );
@@ -141,7 +141,7 @@ const PriceSlider = ({ value, setValue, onApply }) => {
         display: "flex",
         justifyContent: "space-between",
         fontSize: 11,
-        color: "rgba(255,255,255,0.60)"
+        color: "var(--text-60)"
       }}>
         <span>£{pMin}</span>
         <span>£{pMax}{pMax === PRICE_MAX ? "+" : ""}</span>
@@ -154,7 +154,7 @@ const PriceSlider = ({ value, setValue, onApply }) => {
             height: 32,
             borderRadius: 4,
             background: "var(--accent)",
-            color: "#0A0A0A",
+            color: "var(--accent-ink)",
             fontSize: 12,
             fontWeight: 500
           }}>Apply</button>
@@ -226,7 +226,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
             height: 20, padding: "0 8px",
             borderRadius: 10,
             background: "rgba(236,90,180,0.15)",
-            color: "var(--accent)",
+            color: "var(--accent-line)",
             fontSize: 11, fontWeight: 500,
             display: "inline-flex", alignItems: "center"
           }}>{active} active</span>
@@ -296,7 +296,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
             <SizeChip key={s} label={s} active={filters.sizes.has(s)} onClick={() => toggle("sizes", s)} />
           ))}
         </div>
-        <div className="label-up" style={{ color: "rgba(255,255,255,0.45)", marginTop: 6, marginBottom: 8 }}>Kids</div>
+        <div className="label-up" style={{ color: "var(--text-45)", marginTop: 6, marginBottom: 8 }}>Kids</div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
           {KIDS_SIZES.map(s => (
             <SizeChip key={s} label={s} active={filters.sizes.has(s)} onClick={() => toggle("sizes", s)} />
@@ -306,7 +306,7 @@ const FilterSidebar = ({ filters, setFilters }) => {
 
       {active > 0 && (
         <button onClick={reset} style={{
-          color: "rgba(255,255,255,0.60)",
+          color: "var(--text-60)",
           fontSize: 12,
           marginTop: 16,
           textDecoration: "underline",
@@ -322,9 +322,9 @@ const SizeChip = ({ label, active, onClick }) => (
     height: 28,
     padding: "0 10px",
     borderRadius: 4,
-    border: "1px solid " + (active ? "var(--accent)" : "rgba(255,255,255,0.20)"),
+    border: "1px solid " + (active ? "var(--accent)" : "var(--text-20)"),
     background: active ? "rgba(236,90,180,0.10)" : "transparent",
-    color: active ? "var(--accent)" : "rgba(255,255,255,0.85)",
+    color: active ? "var(--accent-line)" : "var(--text-85)",
     fontSize: 12, fontWeight: 500,
     transition: "background 200ms, color 200ms, border-color 200ms"
   }}>{label}</button>

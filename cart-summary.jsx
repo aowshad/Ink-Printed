@@ -12,13 +12,13 @@ const DiscountProgressBar = ({ units }) => {
   if (!active && next) {
     message = (
       <>
-        Add <span style={{ color: "var(--accent)", fontWeight: 500 }}>{next.units - units} more units</span> to unlock <span style={{ color: "var(--accent)", fontWeight: 500 }}>{next.pct}% off</span> your order
+        Add <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>{next.units - units} more units</span> to unlock <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>{next.pct}% off</span> your order
       </>
     );
   } else if (active && next) {
     message = (
       <>
-        <span style={{ color: "var(--accent)", fontWeight: 500 }}>{active.pct}% off</span> applied. Add <span style={{ color: "var(--accent)", fontWeight: 500 }}>{next.units - units} more</span> for {next.pct}% off
+        <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>{active.pct}% off</span> applied. Add <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>{next.units - units} more</span> for {next.pct}% off
       </>
     );
   } else {
@@ -34,13 +34,13 @@ const DiscountProgressBar = ({ units }) => {
       }}>
         <span style={{
           width: 24, height: 24, borderRadius: "50%",
-          background: "var(--accent)", color: "#0A0A0A",
+          background: "var(--accent)", color: "var(--accent-ink)",
           display: "inline-grid", placeItems: "center"
         }}>
           <IconCheck size={14} strokeWidth={2.5} />
         </span>
-        <span style={{ fontSize: 14, color: "#fff", fontWeight: 500 }}>
-          Maximum bulk discount applied — <span style={{ color: "var(--accent)" }}>25% off</span> your order
+        <span style={{ fontSize: 14, color: "var(--text)", fontWeight: 500 }}>
+          Maximum bulk discount applied — <span style={{ color: "var(--accent-line)" }}>25% off</span> your order
         </span>
       </div>
     );
@@ -58,8 +58,8 @@ const DiscountProgressBar = ({ units }) => {
         alignItems: "center",
         gap: 16
       }}>
-        <div style={{ fontSize: 14, color: "rgba(255,255,255,0.85)" }}>{message}</div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.60)", whiteSpace: "nowrap" }}>
+        <div style={{ fontSize: 14, color: "var(--text-85)" }}>{message}</div>
+        <div style={{ fontSize: 11, color: "var(--text-60)", whiteSpace: "nowrap" }}>
           {units} / {next.units} units
         </div>
       </div>
@@ -91,7 +91,7 @@ const DiscountProgressBar = ({ units }) => {
               left: `${x}%`,
               width: 2,
               transform: "translateX(-50%)",
-              background: isNext ? "var(--accent)" : "rgba(255,255,255,0.40)",
+              background: isNext ? "var(--accent)" : "var(--text-40)",
               borderRadius: 1
             }} />
           );
@@ -115,7 +115,7 @@ const DiscountProgressBar = ({ units }) => {
               fontSize: 9,
               letterSpacing: "0.06em",
               textTransform: "uppercase",
-              color: isNext ? "var(--accent)" : "rgba(255,255,255,0.40)",
+              color: isNext ? "var(--accent-line)" : "var(--text-40)",
               whiteSpace: "nowrap",
               fontWeight: 500
             }}>
@@ -175,7 +175,7 @@ const OrderSummary = ({ items, promoCode, setPromoCode, appliedCode, setAppliedC
 
       {/* Divider */}
       <div style={{
-        height: 1, background: "rgba(255,255,255,0.10)",
+        height: 1, background: "var(--border)",
         margin: "16px 0"
       }} />
 
@@ -190,7 +190,7 @@ const OrderSummary = ({ items, promoCode, setPromoCode, appliedCode, setAppliedC
           <div style={{ fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em" }}>
             £{total.toFixed(2)}
           </div>
-          <div style={{ fontSize: 10, color: "rgba(255,255,255,0.60)" }}>incl. VAT</div>
+          <div style={{ fontSize: 10, color: "var(--text-60)" }}>incl. VAT</div>
         </div>
       </div>
 
@@ -217,8 +217,8 @@ const OrderSummary = ({ items, promoCode, setPromoCode, appliedCode, setAppliedC
             fontSize: 9,
             fontWeight: 500,
             letterSpacing: "0.06em",
-            color: "rgba(255,255,255,0.50)",
-            border: "1px solid rgba(255,255,255,0.15)",
+            color: "var(--text-50)",
+            border: "1px solid var(--text-15)",
             borderRadius: 3,
             padding: "4px 6px",
             height: 20,
@@ -237,17 +237,17 @@ const SummaryRow = ({ label, value, dim, accent, onRemove }) => (
     justifyContent: "space-between",
     alignItems: "center"
   }}>
-    <span style={{ color: dim ? "rgba(255,255,255,0.40)" : "rgba(255,255,255,0.75)" }}>
+    <span style={{ color: dim ? "var(--text-40)" : "var(--text-75)" }}>
       {label}
     </span>
     <span style={{
       display: "inline-flex", alignItems: "center", gap: 6,
-      color: accent ? "var(--accent)" : (dim ? "rgba(255,255,255,0.40)" : "#fff"),
+      color: accent ? "var(--accent-line)" : (dim ? "var(--text-40)" : "var(--text)"),
       fontWeight: accent ? 500 : 400
     }}>
       {value}
       {onRemove && (
-        <button onClick={onRemove} style={{ color: "rgba(255,255,255,0.50)" }}>
+        <button onClick={onRemove} style={{ color: "var(--text-50)" }}>
           <IconClose size={12} />
         </button>
       )}
@@ -274,24 +274,24 @@ const PromoCodeInput = ({ value, setValue, appliedCode, setAppliedCode }) => {
           flex: 1,
           height: 36,
           background: "transparent",
-          border: "0.5px solid rgba(255,255,255,0.25)",
+          border: "0.5px solid var(--text-25)",
           borderRadius: 4,
-          color: "#fff",
+          color: "var(--text)",
           padding: "0 12px",
           fontSize: 12,
           outline: "none"
         }}
-        onFocus={e => e.target.style.borderColor = "var(--accent)"}
-        onBlur={e => e.target.style.borderColor = "rgba(255,255,255,0.25)"}
+        onFocus={e => e.target.style.borderColor = "var(--accent-line)"}
+        onBlur={e => e.target.style.borderColor = "var(--text-25)"}
       />
       <button onClick={apply} style={{
         height: 36, padding: "0 12px",
         background: "var(--surface-2)",
-        color: "#fff", fontSize: 11, fontWeight: 500,
+        color: "var(--text)", fontSize: 11, fontWeight: 500,
         borderRadius: 4,
         transition: "background 200ms"
       }}
-      onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.10)"}
+      onMouseEnter={e => e.currentTarget.style.background = "var(--surface-hover)"}
       onMouseLeave={e => e.currentTarget.style.background = "var(--surface-2)"}>
         Apply
       </button>
@@ -307,7 +307,7 @@ const ExpressCheckout = () => (
     padding: 12
   }}>
     <div className="label-up" style={{
-      color: "rgba(255,255,255,0.40)",
+      color: "var(--text-40)",
       textAlign: "center",
       marginBottom: 10,
       fontSize: 9
@@ -362,9 +362,9 @@ const TrustStripCard = () => {
           gap: 10,
           padding: "6px 0",
           fontSize: 11,
-          color: "rgba(255,255,255,0.65)"
+          color: "var(--text-65)"
         }}>
-          <span style={{ color: "rgba(255,255,255,0.50)" }}>{icon}</span>
+          <span style={{ color: "var(--text-50)" }}>{icon}</span>
           <span>{label}</span>
         </div>
       ))}
@@ -394,7 +394,7 @@ const CartCrossSell = ({ items }) => {
         Order something to match?
       </h3>
       <p style={{
-        fontSize: 12, color: "rgba(255,255,255,0.60)",
+        fontSize: 12, color: "var(--text-60)",
         margin: 0, marginTop: 6
       }}>
         Customers who customised a {dominantLower.replace(/s$/, "")} often added these to their order:
@@ -421,7 +421,7 @@ const MiniProductCard = ({ name, from, kind }) => {
          background: "var(--bg)",
          borderRadius: 6,
          overflow: "hidden",
-         border: "0.5px solid rgba(255,255,255,0.08)",
+         border: "0.5px solid var(--text-08)",
          display: "block"
        }}>
       <div style={{ aspectRatio: "1 / 1", position: "relative", overflow: "hidden" }}>
@@ -447,7 +447,7 @@ const MiniProductCard = ({ name, from, kind }) => {
       </div>
       <div style={{ padding: 12 }}>
         <div style={{ fontSize: 14, fontWeight: 500 }}>{name}</div>
-        <div style={{ marginTop: 2, fontSize: 12, color: "var(--accent)", fontWeight: 500 }}>
+        <div style={{ marginTop: 2, fontSize: 12, color: "var(--accent-line)", fontWeight: 500 }}>
           From £{from.toFixed(2)}
         </div>
       </div>
@@ -466,7 +466,7 @@ const EmptyCart = () => (
     <div style={{
       width: 64, height: 64,
       margin: "0 auto 20px",
-      color: "rgba(255,255,255,0.30)",
+      color: "var(--text-30)",
       display: "grid",
       placeItems: "center"
     }}>
@@ -476,7 +476,7 @@ const EmptyCart = () => (
       Your basket is empty
     </div>
     <p style={{
-      fontSize: 14, color: "rgba(255,255,255,0.65)",
+      fontSize: 14, color: "var(--text-65)",
       maxWidth: 360, margin: "8px auto 0", lineHeight: 1.5
     }}>
       Pick a product, design it your way, and we'll print and ship it in 48 hours.
@@ -488,11 +488,11 @@ const EmptyCart = () => (
           background: "var(--surface-2)",
           borderRadius: 18,
           fontSize: 12, fontWeight: 500,
-          color: "#fff",
+          color: "var(--text)",
           display: "inline-flex", alignItems: "center",
           transition: "background 200ms"
         }}
-        onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.10)"}
+        onMouseEnter={e => e.currentTarget.style.background = "var(--surface-hover)"}
         onMouseLeave={e => e.currentTarget.style.background = "var(--surface-2)"}>
           {c}
         </a>

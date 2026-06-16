@@ -110,12 +110,12 @@ const CartPageHeader = ({ items }) => {
     <header>
       <a href="Listing.html" style={{
         fontSize: 12,
-        color: "rgba(255,255,255,0.60)",
+        color: "var(--text-60)",
         display: "inline-flex",
         alignItems: "center",
         gap: 6
       }}>
-        <span style={{ color: "var(--accent)" }}>←</span> Continue shopping
+        <span style={{ color: "var(--accent-line)" }}>←</span> Continue shopping
       </a>
       <div style={{
         display: "flex",
@@ -130,7 +130,7 @@ const CartPageHeader = ({ items }) => {
             letterSpacing: "-0.02em"
           }}>Your basket</h1>
           <div style={{
-            fontSize: 12, color: "rgba(255,255,255,0.60)",
+            fontSize: 12, color: "var(--text-60)",
             marginTop: 4
           }}>
             {items.length} item{items.length === 1 ? "" : "s"} · {units} unit{units === 1 ? "" : "s"} · Reserved for 60 minutes
@@ -153,12 +153,12 @@ const StepIndicator = () => (
     whiteSpace: "nowrap",
     alignItems: "center"
   }}>
-    <span style={{ color: "rgba(255,255,255,0.40)" }}>Step 1 of 3 ·</span>
-    <span style={{ color: "rgba(255,255,255,0.80)" }}>Basket</span>
-    <span style={{ color: "rgba(255,255,255,0.30)" }}>→</span>
-    <span style={{ color: "rgba(255,255,255,0.30)" }}>Shipping</span>
-    <span style={{ color: "rgba(255,255,255,0.30)" }}>→</span>
-    <span style={{ color: "rgba(255,255,255,0.30)" }}>Pay</span>
+    <span style={{ color: "var(--text-40)" }}>Step 1 of 3 ·</span>
+    <span style={{ color: "var(--text-80)" }}>Basket</span>
+    <span style={{ color: "var(--text-30)" }}>→</span>
+    <span style={{ color: "var(--text-30)" }}>Shipping</span>
+    <span style={{ color: "var(--text-30)" }}>→</span>
+    <span style={{ color: "var(--text-30)" }}>Pay</span>
   </div>
 );
 
@@ -173,7 +173,7 @@ const DrawerDemoTrigger = ({ onClick }) => (
     border: "1px solid var(--text-15)",
     borderRadius: 18,
     fontSize: 11,
-    color: "rgba(255,255,255,0.70)",
+    color: "var(--text-70)",
     fontWeight: 500,
     letterSpacing: "0.04em",
     display: "inline-flex",
@@ -182,8 +182,8 @@ const DrawerDemoTrigger = ({ onClick }) => (
     zIndex: 50,
     transition: "background 200ms, color 200ms"
   }}
-  onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "#0A0A0A"; }}
-  onMouseLeave={e => { e.currentTarget.style.background = "var(--surface)"; e.currentTarget.style.color = "rgba(255,255,255,0.70)"; }}>
+  onMouseEnter={e => { e.currentTarget.style.background = "var(--accent)"; e.currentTarget.style.color = "var(--accent-ink)"; }}
+  onMouseLeave={e => { e.currentTarget.style.background = "var(--surface)"; e.currentTarget.style.color = "var(--text-70)"; }}>
     <IconBag size={14} strokeWidth={1.5} />
     Preview "Added to basket" drawer
   </button>

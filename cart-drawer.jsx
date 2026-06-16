@@ -85,14 +85,14 @@ const AddToBasketDrawer = ({ open, onClose, item, items }) => {
               width: 20, height: 20, borderRadius: "50%",
               background: "var(--accent)",
               display: "inline-grid", placeItems: "center",
-              color: "#0A0A0A"
+              color: "var(--accent-ink)"
             }}>
               <IconCheck size={12} strokeWidth={2.5} />
             </span>
             <span style={{ fontSize: 14, fontWeight: 500 }}>Added to basket</span>
           </div>
           <button onClick={onClose} aria-label="Close" style={{
-            color: "rgba(255,255,255,0.60)",
+            color: "var(--text-60)",
             width: 28, height: 28,
             display: "inline-grid", placeItems: "center"
           }}>
@@ -122,12 +122,12 @@ const AddToBasketDrawer = ({ open, onClose, item, items }) => {
             </div>
             <div style={{ minWidth: 0 }}>
               <div style={{ fontSize: 13, fontWeight: 500 }}>{item.productName}</div>
-              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.65)", marginTop: 2 }}>
+              <div style={{ fontSize: 11, color: "var(--text-65)", marginTop: 2 }}>
                 {item.mode === "quicktext"
                   ? <>Quick-text · "{item.text}"</>
                   : <>{item.decoration?.colour} · {item.decoration?.method}</>}
               </div>
-              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.65)", marginTop: 2 }}>
+              <div style={{ fontSize: 11, color: "var(--text-65)", marginTop: 2 }}>
                 {lineUnits} unit{lineUnits === 1 ? "" : "s"} · £{lineTotal.toFixed(2)}
               </div>
             </div>
@@ -143,10 +143,10 @@ const AddToBasketDrawer = ({ open, onClose, item, items }) => {
             borderTop: "0.5px solid var(--text-10)",
             borderBottom: "0.5px solid var(--text-10)"
           }}>
-            <span style={{ color: "rgba(255,255,255,0.65)" }}>
+            <span style={{ color: "var(--text-65)" }}>
               Basket subtotal ({items.length} items)
             </span>
-            <span style={{ color: "#fff", fontWeight: 500 }}>£{subtotal.toFixed(2)}</span>
+            <span style={{ color: "var(--text)", fontWeight: 500 }}>£{subtotal.toFixed(2)}</span>
           </div>
 
           {/* Discount nudge */}
@@ -157,15 +157,15 @@ const AddToBasketDrawer = ({ open, onClose, item, items }) => {
               padding: 10,
               marginTop: 6
             }}>
-              <div style={{ fontSize: 12, color: "#fff" }}>
-                <span style={{ color: "var(--accent)", fontWeight: 500 }}>
+              <div style={{ fontSize: 12, color: "var(--text)" }}>
+                <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>
                   Add {next.units - units} more units
                 </span>
                 {" "}for {next.pct}% off
               </div>
               <div style={{
                 height: 4, borderRadius: 2,
-                background: "rgba(255,255,255,0.10)",
+                background: "var(--text-10)",
                 marginTop: 8,
                 overflow: "hidden"
               }}>
@@ -199,7 +199,7 @@ const AddToBasketDrawer = ({ open, onClose, item, items }) => {
             fontSize: 9,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.40)",
+            color: "var(--text-40)",
             textAlign: "center"
           }}>
             Closes automatically in {Math.ceil(remaining)} second{Math.ceil(remaining) === 1 ? "" : "s"}
@@ -209,7 +209,7 @@ const AddToBasketDrawer = ({ open, onClose, item, items }) => {
         {/* Countdown bar */}
         <div style={{
           height: 2,
-          background: "rgba(255,255,255,0.05)"
+          background: "var(--text-05)"
         }}>
           <div style={{
             height: "100%",

@@ -203,8 +203,8 @@ const Placeholder = ({ label, kind = "product", pool, overlay = "none", style, s
 // Self-contained silhouette: an SVG centred inside its own positioned wrapper.
 // Callers don't need to set position:relative on the container.
 const Silhouette = ({ kind }) => {
-  const stroke = "rgba(255,255,255,0.10)";
-  const fill = "rgba(255,255,255,0.025)";
+  const stroke = "var(--text-10)";
+  const fill = "var(--text-025)";
   const svg = (() => {
     if (kind === "tee") return (
       <svg viewBox="0 0 200 200" width="62%" height="62%">
@@ -302,13 +302,13 @@ const SupplyBlocker = ({ children = "Mark to supply real customer photography be
     gap: 12,
     fontFamily: '"JetBrains Mono", monospace',
     fontSize: 12,
-    color: "var(--accent)",
+    color: "var(--accent-line)",
     letterSpacing: "0.02em",
     textTransform: "uppercase"
   }}>
     <span style={{
       background: "var(--accent)",
-      color: "#0A0A0A",
+      color: "var(--accent-ink)",
       fontWeight: 700,
       padding: "2px 6px",
       borderRadius: 2,
@@ -318,4 +318,43 @@ const SupplyBlocker = ({ children = "Mark to supply real customer photography be
   </div>
 );
 
-Object.assign(window, { Placeholder, Silhouette, Wordmark, SupplyBlocker, ImagePool, pickImage });
+// Theme toggle — flips html[data-theme], persists to localStorage. Lives here
+// because placeholders.jsx loads on every page (incl. Login, which omits top.jsx).
+// Reads the attribute the FOUC guard already set, so it stays in sync on load.
+const ThemeToggle = () => {
+  const [theme, setTheme] = React.useState(
+    (typeof document !== "undefined" && document.documentElement.dataset.theme) || "dark"
+  );
+  const isDark = theme !== "light";
+  const toggle = () => {
+    const next = isDark ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("ip-theme", next); } catch (e) {}
+    setTheme(next);
+  };
+  return (
+    <button
+      onClick={toggle}
+      className="theme-toggle"
+      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      aria-pressed={!isDark}
+      title={isDark ? "Light mode" : "Dark mode"}
+      style={{
+        width: 28, height: 28,
+        display: "inline-grid", placeItems: "center",
+        color: "var(--text-70)",
+        borderRadius: 4,
+        flex: "none",
+        transition: "color 200ms ease-out, background 200ms ease-out"
+      }}
+    >
+      {isDark ? <IconMoon size={16} /> : <IconSun size={16} />}
+      <style>{`
+        .theme-toggle:hover { color: var(--text); background: var(--text-08); }
+        .theme-toggle:focus-visible { outline: 2px solid var(--accent-line); outline-offset: 2px; }
+      `}</style>
+    </button>
+  );
+};
+
+Object.assign(window, { Placeholder, Silhouette, Wordmark, SupplyBlocker, ImagePool, pickImage, ThemeToggle });

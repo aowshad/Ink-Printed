@@ -33,18 +33,18 @@ const QuoteHero = () => (
       alignItems: "center"
     }}>
       <div>
-        <div className="label-up" style={{ color: "var(--accent)" }}>Bulk orders · Custom jobs</div>
+        <div className="label-up" style={{ color: "var(--accent-line)" }}>Bulk orders · Custom jobs</div>
         <h1 style={{
           fontSize: 44, lineHeight: 1.1, fontWeight: 500,
           letterSpacing: "-0.02em",
           margin: "12px 0 0"
         }}>
           Tell us what you need.<br/>
-          We'll come back in <span style={{ color: "var(--accent)" }}>24h</span>.
+          We'll come back in <span style={{ color: "var(--accent-line)" }}>24h</span>.
         </h1>
         <p style={{
           fontSize: 14, lineHeight: 1.55,
-          color: "rgba(255,255,255,0.70)",
+          color: "var(--text-70)",
           marginTop: 14, marginBottom: 0,
           maxWidth: 480
         }}>
@@ -74,12 +74,12 @@ const StatTile = ({ value, label }) => (
   }}>
     <div style={{
       fontSize: 24, fontWeight: 500,
-      color: "var(--accent)",
+      color: "var(--accent-line)",
       letterSpacing: "-0.02em",
       lineHeight: 1
     }}>{value}</div>
     <div className="label-up" style={{
-      color: "rgba(255,255,255,0.70)",
+      color: "var(--text-70)",
       marginTop: 6,
       fontSize: 10
     }}>{label}</div>
@@ -114,7 +114,7 @@ const StepIndicator = ({ step }) => (
           letterSpacing: "0.06em",
           textTransform: "uppercase",
           fontWeight: 500,
-          color: i <= step ? "var(--accent)" : "rgba(255,255,255,0.30)"
+          color: i <= step ? "var(--accent-line)" : "var(--text-30)"
         }}>
           {i + 1} {label}
         </div>
@@ -152,9 +152,9 @@ const TileGrid = ({ options, value, setValue, multi, cols = 3 }) => {
               background: "var(--surface-2)",
               borderRadius: 4,
               border: dashed
-                ? "1px dashed " + (selected ? "var(--accent)" : "rgba(255,255,255,0.25)")
+                ? "1px dashed " + (selected ? "var(--accent)" : "var(--text-25)")
                 : "1px solid " + (selected ? "var(--accent)" : "transparent"),
-              color: selected ? "#fff" : "rgba(255,255,255,0.85)",
+              color: selected ? "var(--text)" : "var(--text-85)",
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
@@ -163,7 +163,7 @@ const TileGrid = ({ options, value, setValue, multi, cols = 3 }) => {
               transition: "background 200ms, border-color 200ms, color 200ms",
               cursor: "pointer"
             }}
-            onMouseEnter={e => { if (!selected) e.currentTarget.style.background = "rgba(255,255,255,0.04)"; }}
+            onMouseEnter={e => { if (!selected) e.currentTarget.style.background = "var(--text-04)"; }}
             onMouseLeave={e => { if (!selected) e.currentTarget.style.background = "var(--surface-2)"; }}>
             {opt.icon && <opt.icon size={20} strokeWidth={1.5} />}
             <span style={{ fontSize: 13, fontWeight: 500, lineHeight: 1.3 }}>{opt.label}</span>
@@ -195,8 +195,8 @@ const PillRow = ({ options, value, setValue, multi }) => {
               height: 36,
               padding: "0 14px",
               borderRadius: 18,
-              background: selected ? "#fff" : "var(--surface-2)",
-              color: selected ? "#0A0A0A" : "rgba(255,255,255,0.85)",
+              background: selected ? "var(--text)" : "var(--surface-2)",
+              color: selected ? "var(--bg)" : "var(--text-85)",
               fontSize: 13,
               fontWeight: 500,
               transition: "background 200ms, color 200ms",
@@ -224,8 +224,8 @@ const YesNoToggle = ({ value, setValue }) => (
         style={{
           height: 32,
           borderRadius: 3,
-          background: value === k ? "#fff" : "transparent",
-          color: value === k ? "#0A0A0A" : "rgba(255,255,255,0.65)",
+          background: value === k ? "var(--text)" : "transparent",
+          color: value === k ? "var(--bg)" : "var(--text-65)",
           fontSize: 13, fontWeight: 500
         }}>{l}</button>
     ))}
@@ -238,23 +238,23 @@ const Checkbox = ({ checked, onChange, children }) => (
     display: "flex", alignItems: "flex-start",
     gap: 10, cursor: "pointer",
     fontSize: 12,
-    color: "rgba(255,255,255,0.75)",
+    color: "var(--text-75)",
     lineHeight: 1.5
   }}>
     <span style={{
       width: 16, height: 16,
       borderRadius: 3,
-      border: checked ? "1px solid var(--accent)" : "1px solid rgba(255,255,255,0.30)",
+      border: checked ? "1px solid var(--accent)" : "1px solid var(--text-30)",
       background: checked ? "var(--accent)" : "transparent",
       display: "inline-flex", alignItems: "center", justifyContent: "center",
       flexShrink: 0,
       marginTop: 1,
       transition: "background 200ms, border-color 200ms",
-      color: "#0A0A0A"
+      color: "var(--accent-ink)"
     }}>
       {checked && (
         <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-          <path d="M2 5l2 2 4-4" stroke="#0A0A0A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M2 5l2 2 4-4" stroke="var(--accent-ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )}
     </span>
@@ -267,11 +267,11 @@ const Checkbox = ({ checked, onChange, children }) => (
 // Field group label
 const FieldLabel = ({ children, optional }) => (
   <div className="label-up" style={{
-    color: "rgba(255,255,255,0.60)",
+    color: "var(--text-60)",
     marginBottom: 8
   }}>
     {children}
-    {optional && <span style={{ color: "rgba(255,255,255,0.30)", fontWeight: 400, marginLeft: 6, textTransform: "none", letterSpacing: 0 }}>(optional)</span>}
+    {optional && <span style={{ color: "var(--text-30)", fontWeight: 400, marginLeft: 6, textTransform: "none", letterSpacing: 0 }}>(optional)</span>}
   </div>
 );
 
@@ -307,7 +307,7 @@ const Step1 = ({ data, setField }) => {
         <PillRow options={deadlineOptions} value={data.deadline} setValue={(v) => setField("deadline", v)} />
         {data.deadline && (
           <div style={{ marginTop: 12 }}>
-            <span style={{ fontSize: 11, color: "rgba(255,255,255,0.55)", marginRight: 10 }}>
+            <span style={{ fontSize: 11, color: "var(--text-55)", marginRight: 10 }}>
               Need it by a specific date?
             </span>
             <input type="date" className="fld"
@@ -444,10 +444,10 @@ const Step3 = ({ data, setField }) => {
             borderRadius: 4,
             padding: 12,
             fontSize: 12,
-            color: "rgba(255,255,255,0.80)",
+            color: "var(--text-80)",
             lineHeight: 1.55
           }}>
-            Our team can help with simple design work — typically <span style={{ color: "var(--accent)", fontWeight: 500 }}>£25–75</span> depending on complexity. We'll quote this with your order.
+            Our team can help with simple design work — typically <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>£25–75</span> depending on complexity. We'll quote this with your order.
           </div>
         </>
       )}
@@ -558,7 +558,7 @@ const FileUpload = ({ files, setFiles }) => {
         style={{
           display: "block",
           padding: 24,
-          border: "1px dashed " + (dragging ? "var(--accent)" : "rgba(255,255,255,0.25)"),
+          border: "1px dashed " + (dragging ? "var(--accent)" : "var(--text-25)"),
           borderRadius: 6,
           background: dragging ? "rgba(236,90,180,0.04)" : "var(--surface-2)",
           textAlign: "center",
@@ -570,12 +570,12 @@ const FileUpload = ({ files, setFiles }) => {
                style={{ position: "absolute", opacity: 0, pointerEvents: "none" }}
                accept=".png,.jpg,.jpeg,.svg,.ai,.eps,.pdf" />
         <div style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
-          <span style={{ color: "var(--accent)" }}><IconUploadCloud size={20} strokeWidth={1.5} /></span>
-          <span style={{ fontSize: 13, color: "#fff" }}>
-            <span style={{ color: "var(--accent)", fontWeight: 500 }}>Drop files here</span> or click to browse
+          <span style={{ color: "var(--accent-line)" }}><IconUploadCloud size={20} strokeWidth={1.5} /></span>
+          <span style={{ fontSize: 13, color: "var(--text)" }}>
+            <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>Drop files here</span> or click to browse
           </span>
         </div>
-        <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginTop: 8 }}>
+        <div style={{ fontSize: 11, color: "var(--text-45)", marginTop: 8 }}>
           PNG, JPG, SVG, AI, EPS, PDF — up to 25 MB
         </div>
       </label>
@@ -587,18 +587,18 @@ const FileUpload = ({ files, setFiles }) => {
               justifyContent: "space-between",
               alignItems: "center",
               fontSize: 12,
-              color: "rgba(255,255,255,0.80)",
+              color: "var(--text-80)",
               background: "var(--surface-2)",
               borderRadius: 4,
               padding: "8px 12px"
             }}>
               <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                <span style={{ color: "var(--accent)" }}><IconCheck size={12} strokeWidth={2.5} /></span>
+                <span style={{ color: "var(--accent-line)" }}><IconCheck size={12} strokeWidth={2.5} /></span>
                 {f.name}
               </span>
               <button type="button"
                 onClick={() => setFiles(files.filter((_, idx) => idx !== i))}
-                style={{ color: "rgba(255,255,255,0.50)" }}>
+                style={{ color: "var(--text-50)" }}>
                 <IconClose size={12} />
               </button>
             </li>
@@ -613,7 +613,7 @@ const FileUpload = ({ files, setFiles }) => {
 const StepHeading = ({ title, sub }) => (
   <div style={{ marginTop: 24 }}>
     <h2 style={{ fontSize: 22, fontWeight: 500, margin: 0, letterSpacing: "-0.01em" }}>{title}</h2>
-    {sub && <p style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", margin: "6px 0 0" }}>{sub}</p>}
+    {sub && <p style={{ fontSize: 13, color: "var(--text-65)", margin: "6px 0 0" }}>{sub}</p>}
   </div>
 );
 
@@ -649,7 +649,7 @@ const SuccessState = ({ data, onReset }) => (
       width: 56, height: 56,
       borderRadius: "50%",
       background: "var(--accent)",
-      color: "#0A0A0A",
+      color: "var(--accent-ink)",
       display: "grid", placeItems: "center",
       margin: "0 auto 20px"
     }}>
@@ -659,13 +659,13 @@ const SuccessState = ({ data, onReset }) => (
       Quote request sent.
     </h2>
     <p style={{
-      fontSize: 14, color: "rgba(255,255,255,0.70)",
+      fontSize: 14, color: "var(--text-70)",
       maxWidth: 460, margin: "10px auto 0", lineHeight: 1.55
     }}>
       We'll review your project and email{" "}
-      <span style={{ color: "#fff" }}>{data.email}</span>{" "}
+      <span style={{ color: "var(--text)" }}>{data.email}</span>{" "}
       within 24 hours. For urgent jobs, give us a ring on{" "}
-      <a href="tel:08000000000" style={{ color: "var(--accent)", fontWeight: 500 }}>0800 000 0000</a>.
+      <a href="tel:08000000000" style={{ color: "var(--accent-line)", fontWeight: 500 }}>0800 000 0000</a>.
     </p>
 
     {/* Recap card */}
@@ -677,7 +677,7 @@ const SuccessState = ({ data, onReset }) => (
       margin: "32px auto 0",
       maxWidth: 540
     }}>
-      <div className="label-up" style={{ color: "rgba(255,255,255,0.50)", marginBottom: 12 }}>What we received</div>
+      <div className="label-up" style={{ color: "var(--text-50)", marginBottom: 12 }}>What we received</div>
       <RecapRow label="Project"   value={prettyProject(data.projectType)} />
       <RecapRow label="Deadline"  value={prettyDeadline(data.deadline, data.deadlineDate)} />
       <RecapRow label="Products"  value={(data.products || []).map(prettyProduct).join(", ") || "—"} />
@@ -702,11 +702,11 @@ const RecapRow = ({ label, value, last }) => (
     gridTemplateColumns: "100px 1fr",
     gap: 12,
     padding: "8px 0",
-    borderBottom: last ? "none" : "0.5px solid rgba(255,255,255,0.08)",
+    borderBottom: last ? "none" : "0.5px solid var(--text-08)",
     fontSize: 12
   }}>
-    <span style={{ color: "rgba(255,255,255,0.50)" }}>{label}</span>
-    <span style={{ color: "#fff" }}>{value || "—"}</span>
+    <span style={{ color: "var(--text-50)" }}>{label}</span>
+    <span style={{ color: "var(--text)" }}>{value || "—"}</span>
   </div>
 );
 
@@ -731,20 +731,20 @@ const HelpCard = () => (
     borderRadius: 6,
     padding: 20
   }}>
-    <div className="label-up" style={{ color: "var(--accent)" }}>Prefer to talk?</div>
+    <div className="label-up" style={{ color: "var(--accent-line)" }}>Prefer to talk?</div>
     <div style={{ fontSize: 14, fontWeight: 500, marginTop: 8 }}>Call us direct</div>
     <a href="tel:08000000000" style={{
-      fontSize: 18, fontWeight: 500, color: "var(--accent)",
+      fontSize: 18, fontWeight: 500, color: "var(--accent-line)",
       display: "inline-flex", alignItems: "center", gap: 8,
       marginTop: 6, letterSpacing: "-0.01em"
     }}>
       <IconPhone size={16} strokeWidth={1.5} />
       0800 000 0000
     </a>
-    <div style={{ fontSize: 11, color: "rgba(255,255,255,0.60)", marginTop: 4 }}>Mon–Fri, 9am–5pm</div>
+    <div style={{ fontSize: 11, color: "var(--text-60)", marginTop: 4 }}>Mon–Fri, 9am–5pm</div>
 
     <div style={{
-      height: 1, background: "rgba(255,255,255,0.10)",
+      height: 1, background: "var(--border)",
       margin: "16px 0"
     }} />
 
@@ -753,10 +753,10 @@ const HelpCard = () => (
       alignItems: "center",
       gap: 8,
       fontSize: 12,
-      color: "rgba(255,255,255,0.65)"
+      color: "var(--text-65)"
     }}>
       <IconMail size={14} strokeWidth={1.5} />
-      <a href="mailto:hello@inkprinted.co.uk" style={{ color: "rgba(255,255,255,0.85)" }}>
+      <a href="mailto:hello@inkprinted.co.uk" style={{ color: "var(--text-85)" }}>
         hello@inkprinted.co.uk
       </a>
     </div>
@@ -783,9 +783,9 @@ const WhyUsCard = () => (
       ].map(item => (
         <li key={item} style={{
           display: "flex", alignItems: "flex-start", gap: 10,
-          fontSize: 12, color: "rgba(255,255,255,0.75)", lineHeight: 1.5
+          fontSize: 12, color: "var(--text-75)", lineHeight: 1.5
         }}>
-          <span style={{ color: "var(--accent)", flexShrink: 0, marginTop: 2 }}>
+          <span style={{ color: "var(--accent-line)", flexShrink: 0, marginTop: 2 }}>
             <IconCheck size={12} strokeWidth={2.5} />
           </span>
           {item}
@@ -801,16 +801,16 @@ const TestimonialCard = () => (
     borderRadius: 6,
     padding: 20
   }}>
-    <div className="label-up" style={{ color: "var(--accent)" }}>Recent bulk order</div>
+    <div className="label-up" style={{ color: "var(--accent-line)" }}>Recent bulk order</div>
     <blockquote style={{
-      fontSize: 12, color: "rgba(255,255,255,0.65)",
+      fontSize: 12, color: "var(--text-65)",
       fontStyle: "italic",
       margin: "12px 0 8px",
       lineHeight: 1.5
     }}>
       "Ordered 120 polos for our team — print quality was spot on and they arrived three days early."
     </blockquote>
-    <div style={{ fontSize: 11, color: "rgba(255,255,255,0.40)" }}>
+    <div style={{ fontSize: 11, color: "var(--text-40)" }}>
       — Tom, building contractor
     </div>
   </div>
@@ -843,7 +843,7 @@ const FAQ = () => {
           <div key={q}>
             <div style={{ fontSize: 13, fontWeight: 500 }}>{q}</div>
             <p style={{
-              fontSize: 12, color: "rgba(255,255,255,0.65)",
+              fontSize: 12, color: "var(--text-65)",
               margin: "4px 0 0", lineHeight: 1.55
             }}>{a}</p>
           </div>
@@ -914,7 +914,7 @@ const QuoteApp = () => {
               <div style={{
                 marginTop: 32,
                 paddingTop: 20,
-                borderTop: "0.5px solid rgba(255,255,255,0.10)",
+                borderTop: "0.5px solid var(--border)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
@@ -926,10 +926,10 @@ const QuoteApp = () => {
                     height: 36,
                     padding: "0 14px",
                     background: "transparent",
-                    color: step === 0 ? "rgba(255,255,255,0.30)" : "#fff",
+                    color: step === 0 ? "var(--text-30)" : "var(--text)",
                     fontSize: 11,
                     fontWeight: 500,
-                    border: "0.5px solid rgba(255,255,255,0.30)",
+                    border: "0.5px solid var(--text-30)",
                     borderRadius: 4,
                     cursor: step === 0 ? "not-allowed" : "pointer",
                     transition: "background 200ms, border-color 200ms"
@@ -940,7 +940,7 @@ const QuoteApp = () => {
                 </button>
 
                 <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                  <span style={{ fontSize: 10, color: "rgba(255,255,255,0.40)" }}>
+                  <span style={{ fontSize: 10, color: "var(--text-40)" }}>
                     Step {step + 1} of {STEPS.length}
                   </span>
                   <button type="button" onClick={next} disabled={!canGo}
