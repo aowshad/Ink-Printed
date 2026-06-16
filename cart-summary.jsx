@@ -24,8 +24,8 @@ const DiscountProgressBar = ({ units }) => {
   } else {
     return (
       <div style={{
-        background: "rgba(170,204,0,0.08)",
-        border: "1px solid rgba(170,204,0,0.45)",
+        background: "rgba(236,90,180,0.08)",
+        border: "1px solid rgba(236,90,180,0.45)",
         borderRadius: 6,
         padding: 16,
         display: "flex",

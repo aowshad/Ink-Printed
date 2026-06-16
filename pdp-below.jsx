@@ -244,7 +244,7 @@ const ReviewsSection = () => {
               height: 32, padding: "0 14px",
               borderRadius: 16,
               border: "1px solid " + (filter === f ? "var(--accent)" : "rgba(255,255,255,0.15)"),
-              background: filter === f ? "rgba(170,204,0,0.10)" : "transparent",
+              background: filter === f ? "rgba(236,90,180,0.10)" : "transparent",
               color: filter === f ? "var(--accent)" : "rgba(255,255,255,0.75)",
               fontSize: 13,
               fontWeight: 500,

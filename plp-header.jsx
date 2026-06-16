@@ -299,7 +299,7 @@ const SortDropdown = ({ sort, setSort }) => {
               borderRadius: 4,
               fontSize: 13,
               color: sort === o ? "var(--accent)" : "#fff",
-              background: sort === o ? "rgba(170,204,0,0.08)" : "transparent",
+              background: sort === o ? "rgba(236,90,180,0.08)" : "transparent",
               transition: "background 200ms"
             }}
             onMouseEnter={e => { if (sort !== o) e.currentTarget.style.background = "var(--surface-2)"; }}

@@ -187,7 +187,7 @@ const PLPProductCard = ({ product: p }) => {
               fontSize: 11, color: "rgba(255,255,255,0.60)",
               display: "inline-flex", alignItems: "center", gap: 4
             }}>
-              <IconStar size={11} filled color="#AACC00" />
+              <IconStar size={11} filled color="#EC5AB4" />
               {p.rating} ({p.reviews})
             </div>
           ) : null}

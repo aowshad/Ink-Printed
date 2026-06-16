@@ -439,8 +439,8 @@ const Step3 = ({ data, setField }) => {
               onChange={e => setField("artworkBrief", e.target.value)} />
           </FormGroup>
           <div style={{
-            background: "rgba(170,204,0,0.06)",
-            border: "1px solid rgba(170,204,0,0.30)",
+            background: "rgba(236,90,180,0.06)",
+            border: "1px solid rgba(236,90,180,0.30)",
             borderRadius: 4,
             padding: 12,
             fontSize: 12,
@@ -560,7 +560,7 @@ const FileUpload = ({ files, setFiles }) => {
           padding: 24,
           border: "1px dashed " + (dragging ? "var(--accent)" : "rgba(255,255,255,0.25)"),
           borderRadius: 6,
-          background: dragging ? "rgba(170,204,0,0.04)" : "var(--surface-2)",
+          background: dragging ? "rgba(236,90,180,0.04)" : "var(--surface-2)",
           textAlign: "center",
           cursor: "pointer",
           transition: "background 200ms, border-color 200ms"

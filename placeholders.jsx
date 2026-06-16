@@ -292,8 +292,8 @@ const Wordmark = ({ size = 20 }) => (
 // Re-usable content-blocker note for sections waiting on real photos
 const SupplyBlocker = ({ children = "Mark to supply real customer photography before launch." }) => (
   <div style={{
-    background: "rgba(170,204,0,0.06)",
-    border: "1px dashed rgba(170,204,0,0.45)",
+    background: "rgba(236,90,180,0.06)",
+    border: "1px dashed rgba(236,90,180,0.45)",
     borderRadius: 4,
     padding: "14px 16px",
     marginBottom: 32,
