@@ -276,10 +276,10 @@ const Silhouette = ({ kind }) => {
   );
 };
 
-// Brand logomark — InkPrinted image
+// Brand logomark — updated SVG wordmark
 const Wordmark = ({ size = 20 }) => (
   <img
-    src="assets/logo.png"
+    src="assets/logo-updated.svg"
     alt="InkPrinted"
     style={{
       height: Math.round(size * 1.4),
