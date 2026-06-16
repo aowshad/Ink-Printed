@@ -60,6 +60,12 @@
   --on-media-65: rgba(255,255,255,0.65);
   --media-scrim: rgba(10,10,10,0.55);/* dark gradient overlay on imagery */
   --panel-dark:  #000000;            /* Login BrandPanel — intentionally dark in both themes */
+
+  /* ---- Homepage promo banner ---- */
+  /* Dark: the cream paper artwork clashes under the dark hero, so use a dark
+     surface band instead of the image (swap in a dark export here later if supplied). */
+  --banner-bg:    #141414;
+  --banner-image: none;
 }
 
 /* ============================================================
@@ -115,4 +121,9 @@ html[data-theme="light"] {
   --on-media-65: rgba(255,255,255,0.65);
   --media-scrim: rgba(10,10,10,0.55);
   --panel-dark:  #000000;
+
+  /* ---- Homepage promo banner ---- */
+  /* Light: warm paper band + the baked artwork (paper + models). */
+  --banner-bg:    #FFF6EE;
+  --banner-image: url("uploads/banner-bg.jpg");
 }
