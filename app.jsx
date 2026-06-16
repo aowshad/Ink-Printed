@@ -6,6 +6,7 @@ function App() {
       <Nav />
       <main>
         <Hero />
+        <PromoCarousel />
         <MarqueeStrip />
         <Categories />
         <HowItWorks />
