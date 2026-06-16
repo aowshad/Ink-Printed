@@ -18,14 +18,14 @@ const Breadcrumb = ({ trail }) => (
         return (
           <React.Fragment key={i}>
             {isLast
-              ? <span style={{ color: "rgba(255,255,255,0.80)" }}>{item}</span>
+              ? <span style={{ color: "var(--text-80)" }}>{item}</span>
               : <a href="#" style={{
-                  color: "rgba(255,255,255,0.50)",
+                  color: "var(--text-50)",
                   transition: "color 200ms"
-                }} onMouseEnter={e => e.target.style.color = "#fff"}
-                  onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.50)"}
+                }} onMouseEnter={e => e.target.style.color = "var(--text)"}
+                  onMouseLeave={e => e.target.style.color = "var(--text-50)"}
                 >{item}</a>}
-            {!isLast && <span style={{ color: "rgba(255,255,255,0.30)" }}>›</span>}
+            {!isLast && <span style={{ color: "var(--text-30)" }}>›</span>}
           </React.Fragment>
         );
       })}
@@ -41,7 +41,7 @@ const PrintAreaBadge = ({ children }) => (
     background: "rgba(10,10,10,0.85)",
     border: "1px solid rgba(255,255,255,0.10)",
     backdropFilter: "blur(8px)",
-    color: "#fff",
+    color: "var(--on-media)",
     fontSize: 11,
     letterSpacing: "0.06em",
     textTransform: "uppercase",
@@ -60,7 +60,7 @@ const ZoomButton = ({ onClick }) => (
     right: 16, bottom: 16,
     background: "rgba(255,255,255,0.92)",
     color: "#0A0A0A",
-    width: 40, height: 40,
+    width: 40, height: 40, /* over-media control: stays light in both themes */
     borderRadius: 20,
     display: "inline-flex",
     alignItems: "center", justifyContent: "center",
@@ -113,12 +113,12 @@ const ImageGallery = () => {
               overflow: "hidden",
               border: i === active
                 ? "2px solid var(--accent)"
-                : "1px solid rgba(255,255,255,0.15)",
+                : "1px solid var(--text-15)",
               position: "relative",
               transition: "border-color 200ms ease-out",
               padding: 0
             }}>
-            <div style={{ position: "absolute", inset: 0, background: "#141414" }}>
+            <div style={{ position: "absolute", inset: 0, background: "var(--surface)" }}>
               <Silhouette kind={s.kind} />
             </div>
             {s.printed && (

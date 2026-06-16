@@ -3,29 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>(function(){try{var t=localStorage.getItem('ip-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <title>Account — InkPrinted</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="theme.css" />
 <style>
+  /* Color tokens live in theme.css. Only layout vars stay here. */
   :root {
-    --bg: #0A0A0A;
-    --bg-deeper: #000000;
-    --accent: #EC5AB4;
-    --text: #FFFFFF;
-    --text-65: rgba(255,255,255,0.65);
-    --text-60: rgba(255,255,255,0.60);
-    --text-50: rgba(255,255,255,0.50);
-    --text-40: rgba(255,255,255,0.40);
-    --text-30: rgba(255,255,255,0.30);
-    --text-25: rgba(255,255,255,0.25);
-    --text-20: rgba(255,255,255,0.20);
-    --text-15: rgba(255,255,255,0.15);
-    --text-10: rgba(255,255,255,0.10);
-    --surface: #141414;
-    --surface-2: #1C1C1C;
-    --surface-hover: #1C1C1C;
-    --border: #1C1C1C;
     --content-max: 1280px;
     --gutter: 96px;
   }
@@ -68,22 +54,22 @@
   }
   .btn .arrow { transition: transform 200ms ease-out; }
   .btn:hover .arrow { transform: translateX(3px); }
-  .btn-primary { background: var(--accent); color: #0A0A0A; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
   .btn-primary:hover { filter: brightness(1.05); }
-  .btn-secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
-  .btn-secondary:hover { border-color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04); }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--text-25); }
+  .btn-secondary:hover { border-color: var(--text-65); background: var(--text-04); }
 
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-  .ph { background-color: #161616; background-image: repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 14px); position: relative; overflow: hidden; }
+  .ph { background-color: var(--surface-2); background-image: repeating-linear-gradient(135deg, var(--text-04) 0 2px, transparent 2px 14px); position: relative; overflow: hidden; }
   .ph-tag {
     position: absolute; left: 12px; bottom: 12px;
     font-family: "JetBrains Mono", monospace;
     font-size: 10px; letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    background: rgba(0,0,0,0.4);
+    color: var(--on-media-65);
+    background: var(--media-scrim);
     border: 1px solid rgba(255,255,255,0.08);
     padding: 4px 6px;
     border-radius: 2px;

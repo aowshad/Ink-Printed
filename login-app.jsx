@@ -29,18 +29,21 @@ const LoginNav = () => (
       <a href="Homepage.html" aria-label="InkPrinted">
         <Wordmark size={16} />
       </a>
-      <a href="Homepage.html" style={{
-        fontSize: 12,
-        color: "rgba(255,255,255,0.60)",
-        display: "inline-flex",
-        alignItems: "center",
-        gap: 6,
-        transition: "color 200ms"
-      }}
-      onMouseEnter={e => e.currentTarget.style.color = "#fff"}
-      onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.60)"}>
-        <span style={{ color: "var(--accent)" }}>←</span> Back to shopping
-      </a>
+      <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+        <a href="Homepage.html" style={{
+          fontSize: 12,
+          color: "var(--text-60)",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 6,
+          transition: "color 200ms"
+        }}
+        onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
+        onMouseLeave={e => e.currentTarget.style.color = "var(--text-60)"}>
+          <span style={{ color: "var(--accent-line)" }}>←</span> Back to shopping
+        </a>
+        <ThemeToggle />
+      </div>
     </div>
   </div>
 );
@@ -54,7 +57,7 @@ const Field = ({ label, rightLabel, children }) => (
       justifyContent: "space-between",
       marginBottom: 6
     }}>
-      <span className="label-up" style={{ color: "rgba(255,255,255,0.60)" }}>{label}</span>
+      <span className="label-up" style={{ color: "var(--text-60)" }}>{label}</span>
       {rightLabel}
     </div>
     {children}
@@ -85,11 +88,11 @@ const PasswordInput = ({ value, onChange, placeholder = "•••••••�
           width: 28, height: 28,
           display: "inline-grid",
           placeItems: "center",
-          color: "rgba(255,255,255,0.60)",
+          color: "var(--text-60)",
           transition: "color 200ms"
         }}
-        onMouseEnter={e => e.currentTarget.style.color = "#fff"}
-        onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.60)"}>
+        onMouseEnter={e => e.currentTarget.style.color = "var(--text)"}
+        onMouseLeave={e => e.currentTarget.style.color = "var(--text-60)"}>
         {show ? <IconEyeOff size={16} /> : <IconEye size={16} />}
       </button>
     </div>
@@ -117,7 +120,7 @@ const StrengthMeter = ({ pw }) => {
             flex: 1,
             height: 3,
             borderRadius: 2,
-            background: i <= s ? "var(--accent)" : "rgba(255,255,255,0.10)",
+            background: i <= s ? "var(--accent)" : "var(--border)",
             transition: "background 200ms"
           }} />
         ))}
@@ -125,7 +128,7 @@ const StrengthMeter = ({ pw }) => {
       {pw && (
         <div style={{
           fontSize: 11,
-          color: s >= 3 ? "var(--accent)" : "rgba(255,255,255,0.55)",
+          color: s >= 3 ? "var(--accent-line)" : "var(--text-55)",
           marginTop: 6
         }}>{labels[s] || "Too short"}</div>
       )}
@@ -139,19 +142,19 @@ const Checkbox = ({ checked, onChange, children }) => (
     display: "flex", alignItems: "flex-start",
     gap: 10, cursor: "pointer",
     fontSize: 12,
-    color: "rgba(255,255,255,0.65)",
+    color: "var(--text-65)",
     lineHeight: 1.5
   }}>
     <span style={{
       width: 16, height: 16,
       borderRadius: 3,
-      border: checked ? "1px solid var(--accent)" : "1px solid rgba(255,255,255,0.30)",
+      border: checked ? "1px solid var(--accent)" : "1px solid var(--text-30)",
       background: checked ? "var(--accent)" : "transparent",
       display: "inline-flex", alignItems: "center", justifyContent: "center",
       flexShrink: 0,
       marginTop: 1,
       transition: "background 200ms, border-color 200ms",
-      color: "#0A0A0A"
+      color: "var(--accent-ink)"
     }}>
       {checked && <IconCheckSm size={10} />}
     </span>
@@ -178,8 +181,8 @@ const ModeToggle = ({ mode, setMode }) => (
           style={{
             height: 36,
             borderRadius: 3,
-            background: active ? "#fff" : "transparent",
-            color: active ? "#0A0A0A" : "rgba(255,255,255,0.60)",
+            background: active ? "var(--text)" : "transparent",
+            color: active ? "var(--bg)" : "var(--text-60)",
             fontSize: 13,
             fontWeight: 500,
             transition: "background 200ms, color 200ms"
@@ -209,7 +212,7 @@ const ForgotForm = ({ onBack }) => {
           borderRadius: "50%",
           background: "var(--accent)",
           display: "grid", placeItems: "center",
-          color: "#0A0A0A",
+          color: "var(--accent-ink)",
           margin: "0 auto 16px"
         }}>
           <IconCheckSm size={20} />
@@ -218,27 +221,27 @@ const ForgotForm = ({ onBack }) => {
           Check your inbox
         </h2>
         <p style={{
-          fontSize: 13, color: "rgba(255,255,255,0.60)",
+          fontSize: 13, color: "var(--text-60)",
           textAlign: "center",
           margin: "8px 0 0"
         }}>
-          We sent a reset link to <span style={{ color: "#fff" }}>{email || "your email"}</span>.
+          We sent a reset link to <span style={{ color: "var(--text)" }}>{email || "your email"}</span>.
         </p>
         <div style={{ marginTop: 24, textAlign: "center" }}>
           {resendIn > 0 ? (
-            <span style={{ fontSize: 12, color: "rgba(255,255,255,0.50)" }}>
+            <span style={{ fontSize: 12, color: "var(--text-50)" }}>
               Resend in {resendIn}s
             </span>
           ) : (
             <button onClick={() => { setResendIn(60); }}
-              style={{ fontSize: 12, color: "var(--accent)", fontWeight: 500 }}>
+              style={{ fontSize: 12, color: "var(--accent-line)", fontWeight: 500 }}>
               Resend email
             </button>
           )}
         </div>
         <div style={{ marginTop: 24, textAlign: "center" }}>
           <button onClick={onBack} style={{
-            fontSize: 12, color: "var(--accent)", fontWeight: 500
+            fontSize: 12, color: "var(--accent-line)", fontWeight: 500
           }}>← Back to login</button>
         </div>
       </div>
@@ -250,7 +253,7 @@ const ForgotForm = ({ onBack }) => {
       <h2 style={{ fontSize: 24, fontWeight: 500, margin: 0, letterSpacing: "-0.01em" }}>
         Reset your password
       </h2>
-      <p style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", margin: "6px 0 0" }}>
+      <p style={{ fontSize: 13, color: "var(--text-60)", margin: "6px 0 0" }}>
         Pop your email in and we'll send you a link.
       </p>
       <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 14 }}>
@@ -266,7 +269,7 @@ const ForgotForm = ({ onBack }) => {
       </div>
       <div style={{ marginTop: 20, textAlign: "center" }}>
         <button type="button" onClick={onBack} style={{
-          fontSize: 12, color: "var(--accent)", fontWeight: 500
+          fontSize: 12, color: "var(--accent-line)", fontWeight: 500
         }}>← Back to login</button>
       </div>
     </form>
@@ -283,7 +286,7 @@ const LoginForm = ({ setForgot, fromCheckout }) => {
       <h2 style={{ fontSize: 24, fontWeight: 500, margin: 0, letterSpacing: "-0.01em" }}>
         Welcome back.
       </h2>
-      <p style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", margin: "6px 0 0", lineHeight: 1.5 }}>
+      <p style={{ fontSize: 13, color: "var(--text-60)", margin: "6px 0 0", lineHeight: 1.5 }}>
         Log in to track orders, view saved designs and reorder in one click.
       </p>
 
@@ -297,7 +300,7 @@ const LoginForm = ({ setForgot, fromCheckout }) => {
           label="Password"
           rightLabel={
             <button type="button" onClick={() => setForgot(true)}
-              style={{ fontSize: 11, color: "var(--accent)", fontWeight: 500 }}>
+              style={{ fontSize: 11, color: "var(--accent-line)", fontWeight: 500 }}>
               Forgot?
             </button>
           }>
@@ -336,8 +339,8 @@ const SignupForm = () => {
       <h2 style={{ fontSize: 24, fontWeight: 500, margin: 0, letterSpacing: "-0.01em" }}>
         Create your account.
       </h2>
-      <p style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", margin: "6px 0 0", lineHeight: 1.5 }}>
-        Save designs, track orders, reorder in one click. <span style={{ color: "var(--accent)", fontWeight: 500 }}>10% off your first order.</span>
+      <p style={{ fontSize: 13, color: "var(--text-60)", margin: "6px 0 0", lineHeight: 1.5 }}>
+        Save designs, track orders, reorder in one click. <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>10% off your first order.</span>
       </p>
 
       <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 14 }}>
@@ -369,9 +372,9 @@ const SignupForm = () => {
       <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 16 }}>
         <Checkbox checked={agree} onChange={() => setAgree(a => !a)}>
           I agree to the{" "}
-          <a href="#" style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 }}>terms</a>
+          <a href="#" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: 3 }}>terms</a>
           {" and "}
-          <a href="#" style={{ color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 }}>privacy policy</a>.
+          <a href="#" style={{ color: "var(--text)", textDecoration: "underline", textUnderlineOffset: 3 }}>privacy policy</a>.
         </Checkbox>
         <Checkbox checked={updates} onChange={() => setUpdates(u => !u)}>
           Send me occasional updates about new products.
@@ -394,7 +397,7 @@ const SignupForm = () => {
 // Brand panel (right column)
 const BrandPanel = () => (
   <aside style={{
-    background: "#000",
+    background: "var(--panel-dark)",
     borderRadius: 6,
     padding: 48,
     minHeight: 540,
@@ -421,7 +424,7 @@ const BrandPanel = () => (
         <span style={{ color: "var(--accent)" }}>Reordering</span>, in one click.
       </h2>
       <p style={{
-        fontSize: 14, color: "rgba(255,255,255,0.70)",
+        fontSize: 14, color: "var(--on-media-65)",
         margin: "14px 0 0", maxWidth: 320, lineHeight: 1.6
       }}>
         Logged-in customers can save designs, track orders, see past invoices and reorder favourites without redesigning.
@@ -519,9 +522,9 @@ const LoginApp = () => {
                     gap: 12,
                     margin: "24px 0"
                   }}>
-                    <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.15)" }} />
-                    <span style={{ fontSize: 11, color: "rgba(255,255,255,0.40)", letterSpacing: "0.06em" }}>OR</span>
-                    <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.15)" }} />
+                    <div style={{ flex: 1, height: 1, background: "var(--text-15)" }} />
+                    <span style={{ fontSize: 11, color: "var(--text-40)", letterSpacing: "0.06em" }}>OR</span>
+                    <div style={{ flex: 1, height: 1, background: "var(--text-15)" }} />
                   </div>
 
                   {/* Guest checkout — only when from=checkout */}
@@ -529,29 +532,29 @@ const LoginApp = () => {
                     <div style={{ textAlign: "center", marginBottom: 16 }}>
                       <a href="#" style={{
                         fontSize: 12,
-                        color: "rgba(255,255,255,0.65)",
+                        color: "var(--text-65)",
                         display: "inline-flex",
                         alignItems: "center",
                         gap: 6
                       }}>
-                        Continue as guest <span style={{ color: "var(--accent)" }}>→</span>
+                        Continue as guest <span style={{ color: "var(--accent-line)" }}>→</span>
                       </a>
                     </div>
                   )}
 
                   {/* Toggle alt link */}
-                  <div style={{ textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.65)" }}>
+                  <div style={{ textAlign: "center", fontSize: 12, color: "var(--text-65)" }}>
                     {mode === "login" ? (
                       <>New here?{" "}
                         <button onClick={() => setMode("signup")}
-                          style={{ color: "var(--accent)", fontWeight: 500 }}>
+                          style={{ color: "var(--accent-line)", fontWeight: 500 }}>
                           Create an account
                         </button>
                       </>
                     ) : (
                       <>Already have an account?{" "}
                         <button onClick={() => setMode("login")}
-                          style={{ color: "var(--accent)", fontWeight: 500 }}>
+                          style={{ color: "var(--accent-line)", fontWeight: 500 }}>
                           Log in
                         </button>
                       </>
@@ -569,12 +572,12 @@ const LoginApp = () => {
         <div style={{
           marginTop: 24,
           fontSize: 11,
-          color: "rgba(255,255,255,0.30)",
+          color: "var(--text-30)",
           textAlign: "center"
         }}>
           {fromCheckout
-            ? <>Showing checkout-flow variant · <a href="Login.html" style={{ color: "rgba(255,255,255,0.55)", textDecoration: "underline" }}>view direct variant</a></>
-            : <>Direct-link variant · <a href="Login.html?from=checkout" style={{ color: "rgba(255,255,255,0.55)", textDecoration: "underline" }}>view checkout-flow variant</a> (adds guest checkout link)</>}
+            ? <>Showing checkout-flow variant · <a href="Login.html" style={{ color: "var(--text-55)", textDecoration: "underline" }}>view direct variant</a></>
+            : <>Direct-link variant · <a href="Login.html?from=checkout" style={{ color: "var(--text-55)", textDecoration: "underline" }}>view checkout-flow variant</a> (adds guest checkout link)</>}
         </div>
       </main>
 

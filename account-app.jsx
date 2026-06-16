@@ -65,9 +65,9 @@ const WISHLIST = [
 // Status indicator
 const STATUS_MAP = {
   delivered:  { dot: "var(--accent)", label: "Delivered" },
-  production: { dot: "#fff",          label: "In production" },
+  production: { dot: "var(--text)",   label: "In production" },
   issue:      { dot: "#F4B400",       label: "Issue" },
-  cancelled:  { dot: "rgba(255,255,255,0.30)", label: "Cancelled" }
+  cancelled:  { dot: "var(--text-30)", label: "Cancelled" }
 };
 
 // ── Account header
@@ -84,7 +84,7 @@ const AccountHeader = ({ user }) => (
       gap: 24
     }}>
       <div>
-        <div className="label-up" style={{ color: "rgba(255,255,255,0.40)" }}>Your account</div>
+        <div className="label-up" style={{ color: "var(--text-40)" }}>Your account</div>
         <h1 style={{
           fontSize: 28, lineHeight: "36px", fontWeight: 500,
           letterSpacing: "-0.02em",
@@ -93,7 +93,7 @@ const AccountHeader = ({ user }) => (
           Welcome back, {user.first}.
         </h1>
         <div style={{
-          fontSize: 12, color: "rgba(255,255,255,0.65)",
+          fontSize: 12, color: "var(--text-65)",
           marginTop: 6
         }}>
           Member since {user.memberSince} · {user.ordersCount} orders placed · £{user.totalSpent.toFixed(2)} spent
@@ -110,15 +110,15 @@ const AccountHeader = ({ user }) => (
         height: 36px;
         padding: 0 14px;
         background: transparent;
-        color: rgba(255,255,255,0.85);
+        color: var(--text-85);
         font-size: 12px;
         font-weight: 500;
-        border: 0.5px solid rgba(255,255,255,0.25);
+        border: 0.5px solid var(--text-25);
         border-radius: 4px;
         white-space: nowrap;
         transition: background 200ms ease-out, border-color 200ms ease-out;
       }
-      .acct-outline:hover { background: var(--surface-2); border-color: rgba(255,255,255,0.45); }
+      .acct-outline:hover { background: var(--surface-2); border-color: var(--text-45); }
     `}</style>
   </section>
 );
@@ -146,7 +146,7 @@ const Sidebar = ({ active }) => (
     alignSelf: "flex-start"
   }}>
     <div className="label-up" style={{
-      color: "rgba(255,255,255,0.60)",
+      color: "var(--text-60)",
       marginBottom: 14
     }}>Navigate</div>
 
@@ -161,7 +161,7 @@ const Sidebar = ({ active }) => (
               padding: "0 12px",
               borderRadius: 4,
               background: isActive ? "var(--surface-2)" : "transparent",
-              color: isActive ? "#fff" : "rgba(255,255,255,0.65)",
+              color: isActive ? "var(--text)" : "var(--text-65)",
               display: "flex",
               alignItems: "center",
               gap: 10,
@@ -170,8 +170,8 @@ const Sidebar = ({ active }) => (
               borderLeft: isActive ? "2px solid var(--accent)" : "2px solid transparent",
               transition: "background 200ms, color 200ms"
             }}
-            onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = "#fff"; }}
-            onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}>
+            onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = "var(--text)"; }}
+            onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = "var(--text-65)"; }}>
             <Icon size={16} strokeWidth={1.5} />
             <span style={{ flex: 1 }}>{item.label}</span>
             {item.count != null && (
@@ -184,7 +184,7 @@ const Sidebar = ({ active }) => (
                 fontWeight: 500,
                 display: "inline-flex",
                 alignItems: "center",
-                color: "rgba(255,255,255,0.85)"
+                color: "var(--text-85)"
               }}>{item.count}</span>
             )}
           </a>
@@ -195,9 +195,9 @@ const Sidebar = ({ active }) => (
     <div style={{
       marginTop: 24,
       paddingTop: 16,
-      borderTop: "0.5px solid rgba(255,255,255,0.10)"
+      borderTop: "0.5px solid var(--border)"
     }}>
-      <div className="label-up" style={{ color: "rgba(255,255,255,0.60)", marginBottom: 10 }}>Need help?</div>
+      <div className="label-up" style={{ color: "var(--text-60)", marginBottom: 10 }}>Need help?</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <a href="Quote.html" style={helpLink}>Contact support</a>
         <a href="Quote.html#faq" style={helpLink}>FAQs</a>
@@ -206,7 +206,7 @@ const Sidebar = ({ active }) => (
     </div>
   </aside>
 );
-const helpLink = { fontSize: 12, color: "rgba(255,255,255,0.65)", transition: "color 200ms" };
+const helpLink = { fontSize: 12, color: "var(--text-65)", transition: "color 200ms" };
 
 // ── Hero reorder card
 const ReorderHero = ({ order }) => {
@@ -243,7 +243,7 @@ const ReorderHero = ({ order }) => {
           <span style={{
             fontFamily: '"JetBrains Mono", monospace',
             fontSize: 6,
-            color: "var(--accent)",
+            color: "var(--accent-line)",
             textTransform: "uppercase",
             letterSpacing: "0.06em"
           }}>Logo</span>
@@ -251,19 +251,19 @@ const ReorderHero = ({ order }) => {
       </div>
 
       <div>
-        <div className="label-up" style={{ color: "var(--accent)" }}>
+        <div className="label-up" style={{ color: "var(--accent-line)" }}>
           {inProduction ? "Your order in production" : "Your last order"}
         </div>
         <div style={{ fontSize: 16, fontWeight: 500, marginTop: 6, letterSpacing: "-0.01em" }}>
           {order.product} · "{order.designName}"
-          {order.hasMore && <span style={{ color: "rgba(255,255,255,0.50)", fontWeight: 400 }}> +2 more</span>}
+          {order.hasMore && <span style={{ color: "var(--text-50)", fontWeight: 400 }}> +2 more</span>}
         </div>
-        <div style={{ fontSize: 12, color: "rgba(255,255,255,0.65)", marginTop: 4 }}>
+        <div style={{ fontSize: 12, color: "var(--text-65)", marginTop: 4 }}>
           {order.units} units · {order.colour} · {order.method} · {inProduction ? "Dispatching this week" : `Delivered ${order.delivered}`}
         </div>
         {order.hasMore && (
           <a href="#" style={{
-            fontSize: 11, color: "rgba(255,255,255,0.65)",
+            fontSize: 11, color: "var(--text-65)",
             marginTop: 6, display: "inline-flex", alignItems: "center", gap: 4,
             textDecoration: "underline", textUnderlineOffset: 3
           }}>View full order</a>
@@ -274,7 +274,7 @@ const ReorderHero = ({ order }) => {
         <a href={ctaHref} className="btn btn-primary" style={{ height: 36, fontSize: 13 }}>
           {inProduction ? "Track order" : "Reorder"} <IconArrowRight size={14} className="arrow" />
         </a>
-        <span style={{ fontSize: 11, color: "rgba(255,255,255,0.60)" }}>
+        <span style={{ fontSize: 11, color: "var(--text-60)" }}>
           {inProduction ? "See where your kit is" : "Same design, new order"}
         </span>
       </div>
@@ -307,7 +307,7 @@ const RecentOrders = () => (
   </div>
 );
 const seeAllLink = {
-  fontSize: 11, color: "var(--accent)", fontWeight: 500,
+  fontSize: 11, color: "var(--accent-line)", fontWeight: 500,
   display: "inline-flex", alignItems: "center", gap: 4
 };
 
@@ -319,7 +319,7 @@ const OrderRow = ({ order, last }) => {
       gridTemplateColumns: "48px 1fr auto",
       gap: 10,
       padding: "10px 0",
-      borderBottom: last ? "none" : "0.5px solid rgba(255,255,255,0.10)",
+      borderBottom: last ? "none" : "0.5px solid var(--border)",
       alignItems: "center"
     }}>
       <div style={{
@@ -334,7 +334,7 @@ const OrderRow = ({ order, last }) => {
         <div style={{ fontSize: 13, fontWeight: 500 }}>{order.product} ×{order.count}</div>
         <div style={{
           fontSize: 10,
-          color: "rgba(255,255,255,0.65)",
+          color: "var(--text-65)",
           marginTop: 2,
           display: "inline-flex",
           alignItems: "center",
@@ -353,7 +353,7 @@ const OrderRow = ({ order, last }) => {
       <div style={{ textAlign: "right" }}>
         <div style={{ fontSize: 13, fontWeight: 500 }}>£{order.price.toFixed(2)}</div>
         <a href={order.status === "production" ? "Account.html" : "Cart.html"} style={{
-          fontSize: 10, color: "var(--accent)", fontWeight: 500
+          fontSize: 10, color: "var(--accent-line)", fontWeight: 500
         }}>{order.action}</a>
       </div>
     </div>
@@ -409,14 +409,14 @@ const SavedDesignTile = ({ design }) => (
           padding: "3px 5px",
           borderRadius: 2,
           background: "rgba(10,10,10,0.85)",
-          color: "#fff",
+          color: "var(--on-media)",
           border: "1px solid rgba(255,255,255,0.20)"
         }}>Draft</span>
       )}
     </div>
     <div style={{ marginTop: 6 }}>
       <div style={{ fontSize: 12, fontWeight: 500 }}>{design.name}</div>
-      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.65)" }}>Saved {design.saved}</div>
+      <div style={{ fontSize: 10, color: "var(--text-65)" }}>Saved {design.saved}</div>
     </div>
   </a>
 );
@@ -427,23 +427,23 @@ const NewDesignTile = () => (
       aspectRatio: "1 / 1",
       background: "var(--surface-2)",
       borderRadius: 4,
-      border: "1px dashed rgba(255,255,255,0.20)",
+      border: "1px dashed var(--text-20)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
       gap: 8,
-      color: "rgba(255,255,255,0.65)",
+      color: "var(--text-65)",
       transition: "background 200ms, color 200ms"
     }}
-    onMouseEnter={e => { e.currentTarget.style.color = "#fff"; e.currentTarget.style.background = "rgba(236,90,180,0.06)"; }}
-    onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.65)"; e.currentTarget.style.background = "var(--surface-2)"; }}>
+    onMouseEnter={e => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.background = "rgba(236,90,180,0.06)"; }}
+    onMouseLeave={e => { e.currentTarget.style.color = "var(--text-65)"; e.currentTarget.style.background = "var(--surface-2)"; }}>
       <IconPlusSm size={20} />
       <span style={{ fontSize: 11, fontWeight: 500 }}>Start new design</span>
     </div>
     <div style={{ marginTop: 6 }}>
-      <div style={{ fontSize: 12, fontWeight: 500, color: "rgba(255,255,255,0.65)" }}>New</div>
-      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.40)" }}>From a blank</div>
+      <div style={{ fontSize: 12, fontWeight: 500, color: "var(--text-65)" }}>New</div>
+      <div style={{ fontSize: 10, color: "var(--text-40)" }}>From a blank</div>
     </div>
   </a>
 );
@@ -462,7 +462,7 @@ const Wishlist = () => (
       marginBottom: 14
     }}>
       <h3 style={{ fontSize: 16, fontWeight: 500, margin: 0 }}>
-        Wishlist <span style={{ color: "rgba(255,255,255,0.50)", fontWeight: 400 }}>({WISHLIST.length})</span>
+        Wishlist <span style={{ color: "var(--text-50)", fontWeight: 400 }}>({WISHLIST.length})</span>
       </h3>
       <a href="Listing.html" style={seeAllLink}>See all <IconArrowRight size={11} /></a>
     </div>
@@ -501,7 +501,7 @@ const WishlistCard = ({ item }) => (
     </div>
     <div style={{ marginTop: 6 }}>
       <div style={{ fontSize: 12, fontWeight: 500 }}>{item.name}</div>
-      <div style={{ fontSize: 11, color: "var(--accent)", fontWeight: 500 }}>From £{item.from.toFixed(2)}</div>
+      <div style={{ fontSize: 11, color: "var(--accent-line)", fontWeight: 500 }}>From £{item.from.toFixed(2)}</div>
     </div>
   </a>
 );
@@ -527,11 +527,11 @@ const StatBlock = ({ value, label, accent }) => (
   }}>
     <div style={{
       fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em",
-      color: accent ? "var(--accent)" : "#fff",
+      color: accent ? "var(--accent-line)" : "var(--text)",
       lineHeight: 1
     }}>{value}</div>
     <div className="label-up" style={{
-      color: "rgba(255,255,255,0.60)",
+      color: "var(--text-60)",
       marginTop: 8,
       fontSize: 10
     }}>{label}</div>

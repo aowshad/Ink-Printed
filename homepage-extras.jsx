@@ -6,7 +6,7 @@ const { useState: useStateExtras, useEffect: useEffectExtras, useRef: useRefExtr
 
 // ── Tiny acid-green star (used in marquee + reviews)
 const AcidStar = ({ size = 12 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="#EC5AB4" aria-hidden="true">
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="var(--accent-line)" aria-hidden="true">
     <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z" />
   </svg>
 );
@@ -39,7 +39,7 @@ const MarqueeStrip = () => {
             fontWeight: 500,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.90)",
+            color: "var(--text-90)",
             whiteSpace: "nowrap"
           }}>{s}</span>
           <AcidStar />
@@ -50,9 +50,9 @@ const MarqueeStrip = () => {
 
   return (
     <div className="ip-marquee" style={{
-      background: "#000",
-      borderTop: "1px solid rgba(255,255,255,0.10)",
-      borderBottom: "1px solid rgba(255,255,255,0.10)",
+      background: "var(--bg-deeper)",
+      borderTop: "1px solid var(--border)",
+      borderBottom: "1px solid var(--border)",
       height: 56,
       display: "flex",
       alignItems: "center",
@@ -168,7 +168,7 @@ const BeforeAfterSlider = () => {
           {/* Labels */}
           <span style={{
             position: "absolute", top: 16, left: 16,
-            background: "var(--accent)", color: "#0A0A0A",
+            background: "var(--accent)", color: "var(--accent-ink)",
             fontSize: 11, fontWeight: 500, letterSpacing: "0.08em",
             textTransform: "uppercase",
             padding: "4px 8px",
@@ -177,7 +177,7 @@ const BeforeAfterSlider = () => {
           }}>No Customization</span>
           <span style={{
             position: "absolute", top: 16, right: 16,
-            background: "var(--accent)", color: "#0A0A0A",
+            background: "var(--accent)", color: "var(--accent-ink)",
             fontSize: 11, fontWeight: 500, letterSpacing: "0.08em",
             textTransform: "uppercase",
             padding: "4px 8px",
@@ -210,7 +210,7 @@ const BeforeAfterSlider = () => {
             cursor: "ew-resize",
             zIndex: 3
           }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#EC5AB4" strokeWidth="2" strokeLinecap="round">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--accent-line)" strokeWidth="2" strokeLinecap="round">
               <path d="M5 4 2 7l3 3" />
               <path d="m9 4 3 3-3 3" />
             </svg>
@@ -258,7 +258,7 @@ const QuickTextBand = () => (
             fontWeight: 500,
             letterSpacing: "0.06em",
             textTransform: "uppercase",
-            color: "rgba(255,255,255,0.85)",
+            color: "var(--on-media)",
             zIndex: 2
           }}>Quick-text product</span>
         </div>
@@ -443,7 +443,7 @@ const InstagramBlock = () => {
           marginBottom: 28,
           flexWrap: "wrap"
         }}>
-          <span style={{ fontSize: 18, fontWeight: 500, color: "#fff" }}>
+          <span style={{ fontSize: 18, fontWeight: 500, color: "var(--text)" }}>
             See your prints on Instagram
           </span>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
@@ -537,12 +537,12 @@ const BrandLogoStrip = ({ visible = false }) => {
               justifyContent: "center",
               fontFamily: '"JetBrains Mono", monospace',
               fontSize: 13,
-              color: "rgba(255,255,255,0.40)",
+              color: "var(--text-40)",
               opacity: 1,
               transition: "color 200ms"
             }}
-              onMouseEnter={e => e.currentTarget.style.color = "rgba(255,255,255,0.80)"}
-              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.40)"}>
+              onMouseEnter={e => e.currentTarget.style.color = "var(--text-80)"}
+              onMouseLeave={e => e.currentTarget.style.color = "var(--text-40)"}>
               CLIENT {i + 1}
             </span>
           ))}

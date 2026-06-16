@@ -170,7 +170,7 @@ const StickyCTABar = ({ visible, productName, colour, size, price, multi, totalQ
     left: 0, right: 0,
     bottom: 0,
     background: "var(--bg)",
-    borderTop: "1px solid rgba(255,255,255,0.10)",
+    borderTop: "1px solid var(--border)",
     height: 64,
     zIndex: 60,
     transform: visible ? "translateY(0)" : "translateY(100%)",
@@ -193,15 +193,15 @@ const StickyCTABar = ({ visible, productName, colour, size, price, multi, totalQ
         </div>
         <div style={{ minWidth: 0 }}>
           <div style={{
-            fontSize: 13, color: "#fff",
+            fontSize: 13, color: "var(--text)",
             whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"
           }}>
             {productName}
-            <span style={{ color: "rgba(255,255,255,0.50)" }}>
+            <span style={{ color: "var(--text-50)" }}>
               {" · "}{multi ? `${totalQty} items` : `${colour} · ${size}`}
             </span>
           </div>
-          <div style={{ fontSize: 16, fontWeight: 500, color: "#fff", lineHeight: 1.1, marginTop: 2 }}>
+          <div style={{ fontSize: 16, fontWeight: 500, color: "var(--text)", lineHeight: 1.1, marginTop: 2 }}>
             £{price}
           </div>
         </div>

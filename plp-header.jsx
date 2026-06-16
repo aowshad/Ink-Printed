@@ -16,9 +16,9 @@ const PLPBreadcrumb = ({ trail }) => (
         return (
           <React.Fragment key={i}>
             {isLast
-              ? <span style={{ color: "rgba(255,255,255,0.80)" }}>{item}</span>
-              : <a href="#" style={{ color: "rgba(255,255,255,0.50)" }}>{item}</a>}
-            {!isLast && <span style={{ color: "rgba(255,255,255,0.30)" }}>›</span>}
+              ? <span style={{ color: "var(--text-80)" }}>{item}</span>
+              : <a href="#" style={{ color: "var(--text-50)" }}>{item}</a>}
+            {!isLast && <span style={{ color: "var(--text-30)" }}>›</span>}
           </React.Fragment>
         );
       })}
@@ -41,7 +41,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
 
   return (
     <section style={{
-      borderBottom: "1px solid rgba(255,255,255,0.10)",
+      borderBottom: "1px solid var(--border)",
       paddingTop: 56,
       paddingBottom: 56
     }}>
@@ -54,7 +54,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
         {/* Left — title + sub */}
         <div>
           <div className="label-up" style={{
-            color: "rgba(255,255,255,0.40)"
+            color: "var(--text-40)"
           }}>{meta.parent}</div>
           <h1 style={{
             fontSize: 48, lineHeight: "56px", fontWeight: 500,
@@ -63,7 +63,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
           }}>{meta.name}</h1>
           <p style={{
             fontSize: 15, lineHeight: "24px",
-            color: "rgba(255,255,255,0.65)",
+            color: "var(--text-65)",
             marginTop: 16, marginBottom: 0,
             maxWidth: 480
           }}>{meta.subhead}</p>
@@ -91,7 +91,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
                       lineHeight: "48px",
                       fontWeight: 500,
                       letterSpacing: "-0.02em",
-                      color: active ? "var(--accent)" : "rgba(255,255,255,0.30)",
+                      color: active ? "var(--accent-line)" : "var(--text-30)",
                       display: "inline-flex",
                       alignItems: "center",
                       gap: 16,
@@ -100,7 +100,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
                     }}>
                     {chip}
                     <span className="sub-typo-arrow" aria-hidden="true" style={{
-                      color: active ? "var(--accent)" : "rgba(255,255,255,0.45)",
+                      color: active ? "var(--accent-line)" : "var(--text-45)",
                       transition: "transform 200ms, opacity 200ms",
                       display: "inline-flex"
                     }}>
@@ -116,7 +116,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
               onClick={() => setShowAll(s => !s)}
               style={{
                 marginTop: 12,
-                color: "var(--accent)",
+                color: "var(--accent-line)",
                 fontSize: 14,
                 fontWeight: 500,
                 display: "inline-flex",
@@ -135,7 +135,7 @@ const CategoryHeader = ({ meta, activeSub, setActiveSub }) => {
           transform: translateX(-8px);
         }
         .sub-typo:hover {
-          color: #fff !important;
+          color: var(--text) !important;
         }
         .sub-typo:hover .sub-typo-arrow {
           opacity: 1;
@@ -177,8 +177,8 @@ const SortFilterBar = ({ count, total, filters, setFilters, sort, setSort }) => 
 
   return (
     <div style={{
-      borderTop: "1px solid rgba(255,255,255,0.10)",
-      borderBottom: "1px solid rgba(255,255,255,0.10)",
+      borderTop: "1px solid var(--border)",
+      borderBottom: "1px solid var(--border)",
       position: "sticky",
       top: 108,
       background: "var(--bg)",
@@ -192,11 +192,11 @@ const SortFilterBar = ({ count, total, filters, setFilters, sort, setSort }) => 
         gap: 16
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
-          <span style={{ fontSize: 13, color: "rgba(255,255,255,0.60)", whiteSpace: "nowrap" }}>
+          <span style={{ fontSize: 13, color: "var(--text-60)", whiteSpace: "nowrap" }}>
             {count} of {total} products
           </span>
           {pills.length > 0 && (
-            <span style={{ width: 1, height: 16, background: "rgba(255,255,255,0.20)" }} />
+            <span style={{ width: 1, height: 16, background: "var(--text-20)" }} />
           )}
           <div style={{ display: "flex", gap: 6, alignItems: "center", overflow: "hidden", minWidth: 0 }}>
             {visiblePills.map(p => (
@@ -204,7 +204,7 @@ const SortFilterBar = ({ count, total, filters, setFilters, sort, setSort }) => 
                 style={{
                   height: 28, padding: "0 10px",
                   background: "var(--surface-2)",
-                  color: "#fff",
+                  color: "var(--text)",
                   fontSize: 11,
                   fontWeight: 500,
                   borderRadius: 14,
@@ -214,7 +214,7 @@ const SortFilterBar = ({ count, total, filters, setFilters, sort, setSort }) => 
                   whiteSpace: "nowrap",
                   transition: "background 200ms"
                 }}
-                onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.10)"}
+                onMouseEnter={e => e.currentTarget.style.background = "var(--text-10)"}
                 onMouseLeave={e => e.currentTarget.style.background = "var(--surface-2)"}>
                 {p.label}
                 <IconClose size={10} strokeWidth={2} />
@@ -222,13 +222,13 @@ const SortFilterBar = ({ count, total, filters, setFilters, sort, setSort }) => 
             ))}
             {overflow > 0 && (
               <span style={{
-                fontSize: 11, color: "rgba(255,255,255,0.60)",
+                fontSize: 11, color: "var(--text-60)",
                 padding: "0 4px"
               }}>+{overflow} more</span>
             )}
             {anyActive && (
               <button onClick={clearAll} style={{
-                color: "var(--accent)",
+                color: "var(--accent-line)",
                 fontSize: 11,
                 fontWeight: 500,
                 marginLeft: 4
@@ -257,14 +257,14 @@ const SortDropdown = ({ sort, setSort }) => {
 
   return (
     <div ref={ref} style={{ position: "relative", display: "flex", alignItems: "center", gap: 10 }}>
-      <span style={{ fontSize: 12, color: "rgba(255,255,255,0.60)" }}>Sort:</span>
+      <span style={{ fontSize: 12, color: "var(--text-60)" }}>Sort:</span>
       <button onClick={() => setOpen(o => !o)} style={{
         height: 36,
         padding: "0 14px",
         borderRadius: 18,
-        border: "1px solid rgba(255,255,255,0.20)",
+        border: "1px solid var(--text-20)",
         background: "transparent",
-        color: "rgba(255,255,255,0.85)",
+        color: "var(--text-85)",
         fontSize: 13,
         display: "inline-flex",
         alignItems: "center",
@@ -285,7 +285,7 @@ const SortDropdown = ({ sort, setSort }) => {
           right: 0,
           minWidth: 200,
           background: "var(--surface)",
-          border: "1px solid rgba(255,255,255,0.10)",
+          border: "1px solid var(--border)",
           borderRadius: 6,
           padding: 4,
           zIndex: 10
@@ -298,7 +298,7 @@ const SortDropdown = ({ sort, setSort }) => {
               padding: "8px 12px",
               borderRadius: 4,
               fontSize: 13,
-              color: sort === o ? "var(--accent)" : "#fff",
+              color: sort === o ? "var(--accent-line)" : "var(--text)",
               background: sort === o ? "rgba(236,90,180,0.08)" : "transparent",
               transition: "background 200ms"
             }}

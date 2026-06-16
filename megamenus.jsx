@@ -21,7 +21,7 @@ const megaLabel = {
   fontSize: 11,
   letterSpacing: "0.06em",
   textTransform: "uppercase",
-  color: "rgba(255,255,255,0.40)",
+  color: "var(--text-40)",
   fontWeight: 500,
   marginBottom: 16
 };
@@ -31,7 +31,7 @@ const megaList = {
 };
 const megaLink = {
   fontSize: 14,
-  color: "rgba(255,255,255,0.65)",
+  color: "var(--text-65)",
   display: "inline-block",
   position: "relative",
   transition: "color 200ms ease-out"
@@ -40,7 +40,7 @@ const megaLink = {
 // Featured product card
 const FeaturedProductCard = ({ label = "Featured", name, price, kind, imageLabel }) => (
   <div style={{
-    background: "#0A0A0A",
+    background: "var(--surface-2)",
     borderRadius: 4,
     padding: 16,
     display: "flex",
@@ -50,7 +50,7 @@ const FeaturedProductCard = ({ label = "Featured", name, price, kind, imageLabel
       fontSize: 10,
       letterSpacing: "0.08em",
       textTransform: "uppercase",
-      color: "var(--accent)",
+      color: "var(--accent-line)",
       fontWeight: 500,
       marginBottom: 12
     }}>{label}</div>
@@ -58,15 +58,15 @@ const FeaturedProductCard = ({ label = "Featured", name, price, kind, imageLabel
       height: 240,
       borderRadius: 4,
       overflow: "hidden",
-      background: "#0E0E0E",
+      background: "var(--surface-2)",
       position: "relative"
     }}>
       <Placeholder label={imageLabel} kind={kind} />
     </div>
-    <div style={{ fontSize: 16, fontWeight: 500, color: "#fff", marginTop: 16 }}>{name}</div>
+    <div style={{ fontSize: 16, fontWeight: 500, color: "var(--text)", marginTop: 16 }}>{name}</div>
     <div style={{ fontSize: 13, marginTop: 4 }}>
-      <span style={{ color: "rgba(255,255,255,0.50)" }}>From </span>
-      <span style={{ color: "var(--accent)", fontWeight: 500 }}>{price}</span>
+      <span style={{ color: "var(--text-50)" }}>From </span>
+      <span style={{ color: "var(--accent-line)", fontWeight: 500 }}>{price}</span>
     </div>
     <a href="Product.html" className="btn btn-primary" style={{
       height: 40, width: "100%", justifyContent: "center",
@@ -80,7 +80,7 @@ const FeaturedProductCard = ({ label = "Featured", name, price, kind, imageLabel
 // Utility CTA card (used by Workwear bulk order)
 const UtilityCTACard = ({ label, heading, body, button, href = "Quote.html" }) => (
   <div style={{
-    background: "#0A0A0A",
+    background: "var(--surface-2)",
     borderRadius: 4,
     padding: 20,
     display: "flex",
@@ -93,15 +93,15 @@ const UtilityCTACard = ({ label, heading, body, button, href = "Quote.html" }) =
         fontSize: 10,
         letterSpacing: "0.08em",
         textTransform: "uppercase",
-        color: "var(--accent)",
+        color: "var(--accent-line)",
         fontWeight: 500
       }}>{label}</div>
       <div style={{
-        fontSize: 16, fontWeight: 500, color: "#fff", marginTop: 8,
+        fontSize: 16, fontWeight: 500, color: "var(--text)", marginTop: 8,
         letterSpacing: "-0.01em"
       }}>{heading}</div>
       <div style={{
-        fontSize: 13, color: "rgba(255,255,255,0.65)",
+        fontSize: 13, color: "var(--text-65)",
         marginTop: 12, lineHeight: 1.55
       }}>{body}</div>
     </div>
@@ -120,8 +120,8 @@ const MoodPill = ({ children, href = "Listing.html" }) => (
     height: 28,
     padding: "0 12px",
     borderRadius: 14,
-    background: "#1C1C1C",
-    color: "#fff",
+    background: "var(--surface-2)",
+    color: "var(--text)",
     fontSize: 13,
     display: "inline-flex",
     alignItems: "center",
@@ -135,7 +135,7 @@ const UtilityRow = ({ left, right }) => (
   <div style={{
     marginTop: 32,
     paddingTop: 20,
-    borderTop: "1px solid rgba(255,255,255,0.10)",
+    borderTop: "1px solid var(--border)",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
@@ -181,7 +181,7 @@ const MM_Clothing = () => (
     <UtilityRow
       left={
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.50)" }}>Shop by mood:</span>
+          <span style={{ fontSize: 12, color: "var(--text-50)" }}>Shop by mood:</span>
           <div style={{ display: "flex", gap: 8 }}>
             <MoodPill>New in</MoodPill>
             <MoodPill>Bestsellers</MoodPill>
@@ -229,9 +229,9 @@ const MM_Workwear = () => (
 
     <UtilityRow
       left={
-        <div style={{ fontSize: 13, color: "rgba(255,255,255,0.50)" }}>
+        <div style={{ fontSize: 13, color: "var(--text-50)" }}>
           Need same-day for a uniform emergency? Call{" "}
-          <a href="tel:08000000000" style={{ color: "var(--accent)", fontWeight: 500 }}>
+          <a href="tel:08000000000" style={{ color: "var(--accent-line)", fontWeight: 500 }}>
             0800 000 0000
           </a>
         </div>
@@ -262,7 +262,7 @@ const MM_Gifts = () => (
         links: ["Cushion", "Pillow case", "Canvas shopper", "Large canvas sack", "Tattoos"]
       }]} />
       <div style={{
-        background: "#0A0A0A",
+        background: "var(--surface-2)",
         borderRadius: 4,
         padding: 20,
         display: "flex",
@@ -272,7 +272,7 @@ const MM_Gifts = () => (
           fontSize: 10,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color: "var(--accent)",
+          color: "var(--accent-line)",
           fontWeight: 500
         }}>Quick Gift</div>
         <div style={{
@@ -281,21 +281,21 @@ const MM_Gifts = () => (
           overflow: "hidden",
           marginTop: 12,
           position: "relative",
-          background: "#0E0E0E"
+          background: "var(--surface-2)"
         }}>
           <Placeholder label="I ♥ ___ MUG" kind="mug" />
         </div>
-        <div style={{ fontSize: 16, fontWeight: 500, color: "#fff", marginTop: 16, letterSpacing: "-0.01em" }}>
+        <div style={{ fontSize: 16, fontWeight: 500, color: "var(--text)", marginTop: 16, letterSpacing: "-0.01em" }}>
           Just add your text
         </div>
         <div style={{
-          fontSize: 13, color: "rgba(255,255,255,0.65)",
+          fontSize: 13, color: "var(--text-65)",
           marginTop: 8, lineHeight: 1.55
         }}>
           No designer needed. Type your message and order. Personalised gifts in under a minute.
         </div>
         <a href="Listing.html" style={{
-          color: "var(--accent)", fontSize: 13, fontWeight: 500, marginTop: 16,
+          color: "var(--accent-line)", fontSize: 13, fontWeight: 500, marginTop: 16,
           display: "inline-flex", alignItems: "center", gap: 6
         }}>
           Shop quick gifts <IconArrowRight size={13} />
@@ -306,7 +306,7 @@ const MM_Gifts = () => (
     <UtilityRow
       left={
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <span style={{ fontSize: 12, color: "rgba(255,255,255,0.50)" }}>Shop by occasion:</span>
+          <span style={{ fontSize: 12, color: "var(--text-50)" }}>Shop by occasion:</span>
           <div style={{ display: "flex", gap: 8 }}>
             <MoodPill>Birthday</MoodPill>
             <MoodPill>Wedding</MoodPill>
@@ -324,7 +324,7 @@ const MM_Gifts = () => (
 );
 
 const viewAllLink = {
-  color: "var(--accent)",
+  color: "var(--accent-line)",
   fontSize: 13,
   fontWeight: 500,
   display: "inline-flex",
@@ -343,14 +343,14 @@ const MegaPanel = ({ children }) => (
       {children}
     </div>
     <style>{`
-      .mm-link:hover { color: #fff; }
+      .mm-link:hover { color: var(--text); }
       .mm-link::after {
         content: "";
         position: absolute;
         left: 0; right: 0;
         bottom: -4px;
         height: 1px;
-        background: var(--accent);
+        background: var(--accent-line);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 200ms ease-out;
@@ -358,7 +358,7 @@ const MegaPanel = ({ children }) => (
       .mm-link:hover::after { transform: scaleX(1); }
       .mood-pill:hover {
         background: var(--accent);
-        color: #0A0A0A;
+        color: var(--accent-ink);
       }
     `}</style>
   </div>

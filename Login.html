@@ -3,25 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>(function(){try{var t=localStorage.getItem('ip-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <title>Log in — InkPrinted</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="theme.css" />
 <style>
+  /* Color tokens live in theme.css. Only layout vars stay here. */
   :root {
-    --bg: #0A0A0A;
-    --bg-deeper: #000000;
-    --accent: #EC5AB4;
-    --text: #FFFFFF;
-    --text-65: rgba(255,255,255,0.65);
-    --text-60: rgba(255,255,255,0.60);
-    --text-50: rgba(255,255,255,0.50);
-    --text-40: rgba(255,255,255,0.40);
-    --text-25: rgba(255,255,255,0.25);
-    --text-15: rgba(255,255,255,0.15);
-    --text-10: rgba(255,255,255,0.10);
-    --surface: #141414;
-    --surface-2: #1C1C1C;
     --content-max: 1200px;
   }
   *, *::before, *::after { box-sizing: border-box; }
@@ -62,22 +52,22 @@
   }
   .btn .arrow { transition: transform 200ms ease-out; }
   .btn:hover .arrow { transform: translateX(3px); }
-  .btn-primary { background: var(--accent); color: #0A0A0A; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
   .btn-primary:hover { filter: brightness(1.05); }
 
   input.fld {
     width: 100%;
     height: 44px;
     background: transparent;
-    color: #fff;
-    border: 0.5px solid rgba(255,255,255,0.25);
+    color: var(--text);
+    border: 0.5px solid var(--text-25);
     border-radius: 4px;
     padding: 0 12px;
     font-size: 14px;
     transition: border-color 200ms ease-out;
   }
-  input.fld:focus { border-color: var(--accent); border-width: 1px; }
-  input.fld::placeholder { color: rgba(255,255,255,0.30); }
+  input.fld:focus { border-color: var(--accent-line); border-width: 1px; }
+  input.fld::placeholder { color: var(--text-30); }
 
   /* Subtle textured noise behind the brand panel for editorial feel */
   .grain {
