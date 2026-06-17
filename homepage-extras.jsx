@@ -50,7 +50,7 @@ const MarqueeStrip = () => {
 
   return (
     <div className="ip-marquee" style={{
-      background: "var(--bg-deeper)",
+      background: "var(--deep-bg)",
       borderTop: "1px solid var(--border)",
       borderBottom: "1px solid var(--border)",
       height: 56,

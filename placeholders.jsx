@@ -330,7 +330,7 @@ const SupplyBlocker = ({ children = "Mark to supply real customer photography be
 // Reads the attribute the FOUC guard already set, so it stays in sync on load.
 const ThemeToggle = () => {
   const [theme, setTheme] = React.useState(
-    (typeof document !== "undefined" && document.documentElement.dataset.theme) || "dark"
+    (typeof document !== "undefined" && document.documentElement.dataset.theme) || "light"
   );
   const isDark = theme !== "light";
   const toggle = () => {
