@@ -1,7 +1,7 @@
 /* ============================================================
    InkPrinted — Theme tokens (single source of truth)
-   Dark is the default (:root). Light overrides the SAME names
-   under html[data-theme="light"]. Nothing else should declare
+   Light is the default (:root). Dark overrides the SAME names
+   under html[data-theme="dark"]. Nothing else should declare
    color variables — pages link this BEFORE their inline <style>.
 
    Token groups
@@ -12,7 +12,7 @@
    Fixed (never flip)     : --on-media, --media-scrim, --panel-dark  (text/overlays over photos & the editorial black panel)
    ============================================================ */
 
-:root {
+html[data-theme="dark"] {
   /* ---- Surfaces ---- */
   --bg:            #0A0A0A;
   --bg-deeper:     #000000;
@@ -69,11 +69,12 @@
 }
 
 /* ============================================================
-   LIGHT THEME — warm, intentional, hairline separation only.
+   LIGHT THEME (DEFAULT, :root) — warm, intentional, hairline separation only.
    Accent stays #EC5AB4 for FILLS; as text/icon/border it becomes
    --accent-line (#A01E63 deep raspberry) to clear WCAG AA.
+   Renders before JS runs, so a fresh load is light with no flash.
    ============================================================ */
-html[data-theme="light"] {
+:root {
   /* ---- Surfaces ---- */
   --bg:            #F6F6F3;   /* warm off-white */
   --bg-deeper:     #ECECE6;   /* subtle darker band (utility bar) */

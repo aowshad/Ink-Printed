@@ -140,7 +140,7 @@ const PromoCarousel = () => {
           max-height: 651px;
           background: var(--banner-bg);
           border-top: 1px solid var(--border);
-          border-bottom: 1px solid var(--border);
+          // border-bottom: 1px solid var(--border);
           overflow: hidden;
         }
         .promo-track { position: absolute; inset: 0; }
