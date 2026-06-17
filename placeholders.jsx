@@ -116,6 +116,13 @@ const ImagePool = {
     "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=1200&auto=format&fit=crop&q=80",
     "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=1200&auto=format&fit=crop&q=80",
     "https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=1200&auto=format&fit=crop&q=80"
+  ],
+  // Homepage promo-carousel slides. [0] = the saved baked artwork (composed slide / fallback),
+  // [1] apparel-studio shot (team kit), [2] clothing-rail blanks. Landscape, uncluttered.
+  banner: [
+    "uploads/banner-bg.jpg",
+    "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?w=1600&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=1600&auto=format&fit=crop&q=80"
   ]
 };
 window.ImagePool = ImagePool;
